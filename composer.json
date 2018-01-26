@@ -19,6 +19,9 @@
       "Demyan112rv\\MountebankPHP\\Tests\\": "tests/"
     }
   },
+  "require": {
+    "guzzlehttp/guzzle": ">=4.1.4 <7.0"
+  },
   "require-dev": {
     "codeception/codeception": "^2.3"
   }
