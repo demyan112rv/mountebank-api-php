@@ -3,7 +3,7 @@
   "license": "MIT",
   "description": "PHP Client for mountebank",
   "type": "library",
-  "version": "0.1",
+  "version": "0.2",
   "authors": [
     {
       "name": "Demyanovsky Ruslan",
