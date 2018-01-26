@@ -1,7 +1,7 @@
 {
   "name": "demyan112rv/mountebank-api-php",
   "license": "MIT",
-  "description": "PHP Client for mountebank",
+  "description": "PHP Client for mountebank API",
   "type": "library",
   "authors": [
     {
@@ -11,7 +11,11 @@
   ],
   "autoload": {
     "psr-4": {
-      "Demyan112rv\\MountebankPHP\\": "src/",
+      "Demyan112rv\\MountebankPHP\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
       "Demyan112rv\\MountebankPHP\\Tests\\": "tests/"
     }
   },
