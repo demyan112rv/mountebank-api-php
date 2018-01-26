@@ -24,15 +24,15 @@ class Formatter
             $predicates = [];
 
             foreach ($stub->getResponses() as $r => $response) {
-                $responses[$r] = [
-                    $response->getType() => $response->getConfig()
-                ];
+                $key = $response->getType();
+                $value = $key === Response::TYPE_INJECT ? $response->getInjectJs() : $response->getConfig();
+                $responses[$r] = [$key => $value];
             }
 
             foreach ($stub->getPredicates() as $p => $predicate) {
-                $predicates[$p] = [
-                    $predicate->getOperator() => $predicate->getConfig()
-                ];
+                $key = $predicate->getOperator();
+                $value = $key === Predicate::OPERATOR_INJECT ? $predicate->getInjectJs() : $predicate->getConfig();
+                $predicates[$p] = [$key => $value];
             }
 
             $stubs[$s]['responses'] = $responses;

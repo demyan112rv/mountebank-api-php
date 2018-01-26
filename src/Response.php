@@ -21,6 +21,11 @@ class Response
     protected $config = [];
 
     /**
+     * @var string
+     */
+    protected $injectJs;
+
+    /**
      * Response constructor.
      * @param string|null $type
      */
@@ -73,6 +78,24 @@ class Response
     public function setConfig(array $config): self
     {
         $this->config = $config;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInjectJs(): string
+    {
+        return $this->injectJs;
+    }
+
+    /**
+     * @param string $injectJs
+     * @return Response
+     */
+    public function setInjectJs(string $injectJs): self
+    {
+        $this->injectJs = $injectJs;
         return $this;
     }
 }

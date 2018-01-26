@@ -29,6 +29,11 @@ class Predicate
     protected $config = [];
 
     /**
+     * @var string
+     */
+    protected $injectJs;
+
+    /**
      * Predicate constructor.
      * @param string|null $operator
      */
@@ -93,6 +98,24 @@ class Predicate
     public function setConfig(array $config): self
     {
         $this->config = $config;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInjectJs(): string
+    {
+        return $this->injectJs;
+    }
+
+    /**
+     * @param string $injectJs
+     * @return Predicate
+     */
+    public function setInjectJs(string $injectJs): self
+    {
+        $this->injectJs = $injectJs;
         return $this;
     }
 }
