@@ -1,5 +1,5 @@
 {
-  "name": "demyan112rv/mountebank-php",
+  "name": "demyan112rv/mountebank-api-php",
   "license": "MIT",
   "description": "PHP Client for mountebank",
   "type": "library",
