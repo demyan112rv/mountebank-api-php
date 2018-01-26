@@ -4,9 +4,6 @@
   "description": "PHP Client for mountebank",
   "type": "library",
   "version": "0.1",
-  "require": {
-    "php": ">=7.1"
-  },
   "authors": [
     {
       "name": "Demyanovsky Ruslan",
@@ -20,6 +17,7 @@
     }
   },
   "require": {
+    "php": ">=7.1",
     "guzzlehttp/guzzle": ">=4.1.4 <7.0"
   },
   "require-dev": {
