@@ -1,0 +1,66 @@
+{
+  "imposters": [
+    {
+      "port": 4545,
+      "protocol": "http",
+      "name": "FB Mock server",
+      "mode": "text",
+      "stubs": [
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 200,
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "body": {
+                  "Mock Server": "FB Mountebank",
+                  "Page": "Api request to FB"
+                }
+              }
+            }
+          ],
+          "predicates": [
+            {
+              "equals": {
+                "path": "/test"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "port": 4646,
+      "protocol": "http",
+      "name": "Yandex Mock server",
+      "mode": "text",
+      "stubs": [
+        {
+          "responses": [
+            {
+              "is": {
+                "statusCode": 200,
+                "headers": {
+                  "Content-Type": "application/json"
+                },
+                "body": {
+                  "Mock Server": "Yandex Mountebank",
+                  "Page": "Api request to Yandex"
+                }
+              }
+            }
+          ],
+          "predicates": [
+            {
+              "equals": {
+                "path": "/test"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "demyan112rv/mountebank-php",
+  "license": "MIT",
+  "description": "PHP Client for mountebank",
+  "type": "library",
+  "version": "0.1",
+  "require": {
+    "php": ">=7.1"
+  },
+  "authors": [
+    {
+      "name": "Demyanovsky Ruslan",
+      "email": "demyan112rv@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Demyan112rv\\MountebankPHP\\": "src/",
+      "Demyan112rv\\MountebankPHP\\Tests\\": "tests/"
+    }
+  },
+  "require-dev": {
+    "codeception/codeception": "^2.3"
+  }
+}
