@@ -6,6 +6,12 @@ Usage basics
 -------------
 
 ```php
+use Demyan112rv\MountebankPHP\Imposter;
+use Demyan112rv\MountebankPHP\Mountebank;
+use Demyan112rv\MountebankPHP\Stub;
+use Demyan112rv\MountebankPHP\Response;
+use Demyan112rv\MountebankPHP\Predicate;
+
 // Response for stub
 $response = new Response(Response::TYPE_IS);
 $response->setConfig([
