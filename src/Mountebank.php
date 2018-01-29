@@ -86,7 +86,7 @@ class Mountebank
      */
     public function getImposter(int $port): ResponseInterface
     {
-        return $this->client->request('GET', $this->getImpostersUrl() . '/:' . $port);
+        return $this->client->request('GET', $this->getImpostersUrl() . '/' . $port);
     }
 
     /**
@@ -119,7 +119,7 @@ class Mountebank
      */
     public function removeImposter(int $port): ResponseInterface
     {
-        return $this->client->request('DELETE', $this->getImpostersUrl() . '/:' . $port);
+        return $this->client->request('DELETE', $this->getImpostersUrl() . '/' . $port);
     }
 
     /**
