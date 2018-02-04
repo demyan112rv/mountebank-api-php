@@ -4,6 +4,11 @@ declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP;
 
+/**
+ * Class Stub
+ * @package Demyan112rv\MountebankPHP
+ * @see http://www.mbtest.org/docs/api/stubs
+ */
 class Stub
 {
     /**

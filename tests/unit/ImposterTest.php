@@ -34,7 +34,11 @@ class ImposterTest extends \Codeception\Test\Unit
         ]);
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
-        $predicate->setConfig(['path' => '/test']);
+        $predicate->setConfig(['path' => '/test'])
+            ->setCaseSensitive(true)
+            ->setExcept('expect')
+            ->setXPath((new Predicate\XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
+            ->setJsonPath((new Predicate\JsonPath())->setSelector('selector'));
 
         $stub = new Stub();
         $stub->addResponse($response)->addPredicate($predicate);
@@ -61,5 +65,9 @@ class ImposterTest extends \Codeception\Test\Unit
 
         $this->assertTrue(count($predicates) === 1);
         $this->assertTrue($predicates[0] instanceof Predicate);
+        $this->assertTrue($predicates[0]->isCaseSensitive());
+        $this->assertTrue($predicates[0]->getExcept() === 'expect');
+        $this->assertTrue($predicates[0]->getXPath() instanceof Predicate\XPath);
+        $this->assertTrue($predicates[0]->getJsonPath() instanceof Predicate\JsonPath);
     }
 }

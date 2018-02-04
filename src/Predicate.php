@@ -3,7 +3,14 @@
 declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP;
+use Demyan112rv\MountebankPHP\Predicate\JsonPath;
+use Demyan112rv\MountebankPHP\Predicate\XPath;
 
+/**
+ * Class Predicate
+ * @package Demyan112rv\MountebankPHP
+ * @see http://www.mbtest.org/docs/api/predicates
+ */
 class Predicate
 {
     const OPERATOR_EQUALS = 'equals';
@@ -32,6 +39,33 @@ class Predicate
      * @var string
      */
     protected $injectJs;
+
+    /**
+     * Determines if the match is case sensitive or not.
+     * This includes keys for objects such as query parameters.
+     * @var bool
+     */
+    protected $caseSensitive = false;
+
+    /**
+     * Defines a regular expression that is stripped out of the request field before matching.
+     * @var string
+     */
+    protected $except = '';
+
+    /**
+     * Defines an object containing a selector string and, optionally, an ns object field that defines a namespace map.
+     * The predicate's scope is limited to the selected value in the request field.
+     * @var XPath|null
+     */
+    protected $xPath;
+
+    /**
+     * Defines an object containing a selector string.
+     * The predicate's scope is limited to the selected value in the request field.
+     * @var JsonPath|null
+     */
+    protected $jsonPath;
 
     /**
      * Predicate constructor.
@@ -116,6 +150,78 @@ class Predicate
     public function setInjectJs(string $injectJs): self
     {
         $this->injectJs = $injectJs;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCaseSensitive(): bool
+    {
+        return $this->caseSensitive;
+    }
+
+    /**
+     * @param bool $caseSensitive
+     * @return Predicate
+     */
+    public function setCaseSensitive(bool $caseSensitive): self
+    {
+        $this->caseSensitive = $caseSensitive;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getExcept(): string
+    {
+        return $this->except;
+    }
+
+    /**
+     * @param string $except
+     * @return Predicate
+     */
+    public function setExcept(string $except): self
+    {
+        $this->except = $except;
+        return $this;
+    }
+
+    /**
+     * @return XPath
+     */
+    public function getXPath(): ?XPath
+    {
+        return $this->xPath;
+    }
+
+    /**
+     * @param XPath $xPath
+     * @return Predicate
+     */
+    public function setXPath(XPath $xPath): self
+    {
+        $this->xPath = $xPath;
+        return $this;
+    }
+
+    /**
+     * @return JsonPath
+     */
+    public function getJsonPath(): ?JsonPath
+    {
+        return $this->jsonPath;
+    }
+
+    /**
+     * @param JsonPath $jsonPath
+     * @return Predicate
+     */
+    public function setJsonPath(JsonPath $jsonPath): self
+    {
+        $this->jsonPath = $jsonPath;
         return $this;
     }
 }

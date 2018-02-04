@@ -23,8 +23,7 @@ class MountebankTest extends \Codeception\Test\Unit
     {
     }
 
-    // tests
-    public function testSomeFeature()
+    public function testConfig()
     {
         $response = new Response(Response::TYPE_IS);
         $response->setConfig([
