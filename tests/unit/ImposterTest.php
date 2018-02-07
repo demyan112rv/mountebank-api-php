@@ -47,7 +47,12 @@ class ImposterTest extends \Codeception\Test\Unit
         $imposter->setName('Test imposter')
             ->setPort(1234)
             ->setProtocol(Imposter::PROTOCOL_HTTP)
-            ->addStub($stub);
+            ->addStub($stub)
+            ->setKey('key')
+            ->setCert('cert')
+            ->setMutualAuth(true)
+            ->setDefaultResponse(new Response(Response::TYPE_IS))
+            ->setAllowCORS(true);
 
         $stubs = $imposter->getStubs();
         $responses = $stub->getResponses();
@@ -56,6 +61,11 @@ class ImposterTest extends \Codeception\Test\Unit
         $this->assertNotEmpty($imposter->getName());
         $this->assertNotEmpty($imposter->getPort());
         $this->assertNotEmpty($imposter->getProtocol());
+        $this->assertNotEmpty($imposter->getKey());
+        $this->assertNotEmpty($imposter->getCert());
+        $this->assertTrue($imposter->getDefaultResponse() instanceof Response);
+        $this->assertTrue($imposter->isMutualAuth());
+        $this->assertTrue($imposter->isAllowCORS());
 
         $this->assertTrue(count($stubs) === 1);
         $this->assertTrue($stubs[0] instanceof Stub);
@@ -66,8 +76,13 @@ class ImposterTest extends \Codeception\Test\Unit
         $this->assertTrue(count($predicates) === 1);
         $this->assertTrue($predicates[0] instanceof Predicate);
         $this->assertTrue($predicates[0]->isCaseSensitive());
-        $this->assertTrue($predicates[0]->getExcept() === 'expect');
+        $this->assertNotEmpty($predicates[0]->getExcept());
+
         $this->assertTrue($predicates[0]->getXPath() instanceof Predicate\XPath);
+        $this->assertNotEmpty($predicates[0]->getXPath()->getSelector());
+        $this->assertNotEmpty($predicates[0]->getXPath()->getNs());
+
         $this->assertTrue($predicates[0]->getJsonPath() instanceof Predicate\JsonPath);
+        $this->assertNotEmpty($predicates[0]->getJsonPath()->getSelector());
     }
 }

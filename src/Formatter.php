@@ -23,12 +23,25 @@ class Formatter
             $stubs[$s] = $this->stubToArray($stub);
         }
 
-        return [
+        $array = [
             'port' => $this->imposter->getPort(),
             'protocol' => $this->imposter->getProtocol(),
             'name' => $this->imposter->getName(),
-            'stubs' => $stubs
+            'stubs' => $stubs,
+            'allowCORS' => $this->imposter->isAllowCORS(),
         ];
+
+        if ($this->imposter->getProtocol() === Imposter::PROTOCOL_HTTPS) {
+            $array['key'] = $this->imposter->getKey();
+            $array['cert'] = $this->imposter->getCert();
+            $array['mutualAuth'] = $this->imposter->isMutualAuth();
+        }
+
+        if ($this->imposter->getDefaultResponse()) {
+            $array['defaultResponse'] = $this->responseToArray($this->imposter->getDefaultResponse());
+        }
+
+        return $array;
     }
 
     private function stubToArray(Stub $stub): array

@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+    mountebank:
+        container_name: mountebank_server
+        image: andyrbell/mountebank
+        ports:
+            - 2525:2525
+
+    php:
+        container_name: mountebank_php
+        build:
+            context: .
+            dockerfile: Dockerfile
+        volumes:
+            - .:/var/www/mountebank-api-php
