@@ -6,6 +6,7 @@ use Demyan112rv\MountebankPHP\Imposter;
 use Demyan112rv\MountebankPHP\Mountebank;
 use Demyan112rv\MountebankPHP\Stub;
 use Demyan112rv\MountebankPHP\Response;
+use Demyan112rv\MountebankPHP\Response\Behavior;
 use Demyan112rv\MountebankPHP\Predicate;
 
 class MountebankTest extends \Codeception\Test\Unit
@@ -30,6 +31,8 @@ class MountebankTest extends \Codeception\Test\Unit
             'statusCode' => 200,
             'headers' => ['Content-Type' => 'application/json'],
             'body' => ['foo' => 'bar']
+        ])->setBehaviors([
+            (new Behavior(Behavior::TYPE_WAIT))->setConfig(500)
         ]);
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);

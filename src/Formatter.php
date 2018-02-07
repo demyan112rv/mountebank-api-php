@@ -68,7 +68,16 @@ class Formatter
     {
         $key = $response->getType();
         $value = $key === Response::TYPE_INJECT ? $response->getInjectJs() : $response->getConfig();
-        return [$key => $value];
+        $array = [$key => $value];
+
+        if ($response->getBehaviors()) {
+            $array['_behaviors'] = [];
+            foreach ($response->getBehaviors() as $behavior) {
+                $array['_behaviors'][$behavior->getType()] = $behavior->getConfig();
+            }
+        }
+
+        return $array;
     }
 
     private function predicateToArray(Predicate $predicate): array

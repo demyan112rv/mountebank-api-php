@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP;
 
+use Demyan112rv\MountebankPHP\Response\Behavior;
+
 class Response
 {
     const TYPE_IS = 'is';
@@ -24,6 +26,11 @@ class Response
      * @var string
      */
     protected $injectJs;
+
+    /**
+     * @var Behavior[]
+     */
+    protected $behaviors = [];
 
     /**
      * Response constructor.
@@ -54,7 +61,7 @@ class Response
      * @param string $type
      * @return Response
      */
-    public function setType(string $type): self
+    public function setType(string $type): Response
     {
         if (!in_array($type, static::getTypes())) {
             throw new \InvalidArgumentException();
@@ -75,7 +82,7 @@ class Response
      * @param array $config
      * @return Response
      */
-    public function setConfig(array $config): self
+    public function setConfig(array $config): Response
     {
         $this->config = $config;
         return $this;
@@ -93,9 +100,37 @@ class Response
      * @param string $injectJs
      * @return Response
      */
-    public function setInjectJs(string $injectJs): self
+    public function setInjectJs(string $injectJs): Response
     {
         $this->injectJs = $injectJs;
+        return $this;
+    }
+
+    /**
+     * @return Behavior[]
+     */
+    public function getBehaviors(): array
+    {
+        return $this->behaviors;
+    }
+
+    /**
+     * @param Behavior[] $behaviors
+     * @return Response
+     */
+    public function setBehaviors(array $behaviors): Response
+    {
+        $this->behaviors = $behaviors;
+        return $this;
+    }
+
+    /**
+     * @param Behavior $behavior
+     * @return Response
+     */
+    public function addBehavior(Behavior $behavior): Response
+    {
+        $this->behaviors[] = $behavior;
         return $this;
     }
 }
