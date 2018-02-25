@@ -6,6 +6,7 @@ Mountebank API PHP
 [![License](https://poser.pugx.org/demyan112rv/mountebank-api-php/license)](https://packagist.org/packages/demyan112rv/mountebank-api-php)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg)](https://github.com/phpstan/phpstan)
 [![Build Status](https://travis-ci.org/demyan112rv/mountebank-api-php.svg?branch=master)](https://travis-ci.org/demyan112rv/mountebank-api-php)
+[![Coverage Status](https://coveralls.io/repos/github/demyan112rv/mountebank-api-php/badge.svg?branch=master)](https://coveralls.io/github/demyan112rv/mountebank-api-php?branch=master)
 
 Usage basics
 -------------

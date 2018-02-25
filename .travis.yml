@@ -14,5 +14,15 @@ install:
   - export PATH="$HOME/.composer/vendor/bin:$PATH"
   - travis_retry composer install --prefer-dist --no-interaction
 
+before_script:
+  - mkdir -p build/logs
+  - ls -al
+
 script:
-  - phpunit --verbose
+  - phpunit --verbose --coverage-clover build/logs/clover.xml
+
+after_success:
+  - travis_retry php vendor/bin/php-coveralls -v
+
+branches:
+  only: master
