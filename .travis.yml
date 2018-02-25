@@ -20,7 +20,7 @@ before_script:
 
 script:
   - phpunit --verbose --coverage-clover build/logs/clover.xml
-  - phpstan analyse src --level 7
+  - ./vendor/bin/phpstan analyse src --level 7
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls -v
