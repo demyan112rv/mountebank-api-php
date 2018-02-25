@@ -73,7 +73,9 @@ class Predicate
      */
     public function __construct(string $operator = null)
     {
-        $this->setOperator($operator);
+        if ($operator) {
+            $this->setOperator($operator);
+        }
     }
 
     /**

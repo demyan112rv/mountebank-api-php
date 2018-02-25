@@ -29,7 +29,9 @@ class Behavior
      */
     public function __construct(string $type = null)
     {
-        $this->setType($type);
+        if ($type) {
+            $this->setType($type);
+        }
     }
 
     /**

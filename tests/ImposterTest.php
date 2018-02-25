@@ -2,27 +2,16 @@
 
 declare(strict_types=1);
 
+namespace Demyan112rv\MountebankPHP\Tests;
+
 use Demyan112rv\MountebankPHP\Imposter;
 use Demyan112rv\MountebankPHP\Stub;
 use Demyan112rv\MountebankPHP\Response;
 use Demyan112rv\MountebankPHP\Predicate;
+use PHPUnit\Framework\TestCase;
 
-class ImposterTest extends \Codeception\Test\Unit
+class ImposterTest extends TestCase
 {
-    /**
-     * @var \UnitTester
-     */
-    protected $tester;
-
-    protected function _before()
-    {
-
-    }
-
-    protected function _after()
-    {
-
-    }
 
     public function testFill()
     {
