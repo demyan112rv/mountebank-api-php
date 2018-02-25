@@ -8,6 +8,8 @@ use Demyan112rv\MountebankPHP\Imposter;
 use Demyan112rv\MountebankPHP\Stub;
 use Demyan112rv\MountebankPHP\Response;
 use Demyan112rv\MountebankPHP\Predicate;
+use Demyan112rv\MountebankPHP\Predicate\XPath;
+use Demyan112rv\MountebankPHP\Predicate\JsonPath;
 use PHPUnit\Framework\TestCase;
 
 class ImposterTest extends TestCase
@@ -26,8 +28,8 @@ class ImposterTest extends TestCase
         $predicate->setConfig(['path' => '/test'])
             ->setCaseSensitive(true)
             ->setExcept('expect')
-            ->setXPath((new Predicate\XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
-            ->setJsonPath((new Predicate\JsonPath())->setSelector('selector'));
+            ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
+            ->setJsonPath((new JsonPath())->setSelector('selector'));
 
         $stub = new Stub();
         $stub->addResponse($response)->addPredicate($predicate);
@@ -67,11 +69,11 @@ class ImposterTest extends TestCase
         $this->assertTrue($predicates[0]->isCaseSensitive());
         $this->assertNotEmpty($predicates[0]->getExcept());
 
-        $this->assertTrue($predicates[0]->getXPath() instanceof Predicate\XPath);
+        $this->assertTrue($predicates[0]->getXPath() instanceof XPath);
         $this->assertNotEmpty($predicates[0]->getXPath()->getSelector());
         $this->assertNotEmpty($predicates[0]->getXPath()->getNs());
 
-        $this->assertTrue($predicates[0]->getJsonPath() instanceof Predicate\JsonPath);
+        $this->assertTrue($predicates[0]->getJsonPath() instanceof JsonPath);
         $this->assertNotEmpty($predicates[0]->getJsonPath()->getSelector());
     }
 }
