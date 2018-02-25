@@ -16,19 +16,24 @@ use Demyan112rv\MountebankPHP\Imposter;
 use Demyan112rv\MountebankPHP\Mountebank;
 use Demyan112rv\MountebankPHP\Stub;
 use Demyan112rv\MountebankPHP\Response;
+use Demyan112rv\MountebankPHP\Response\Behavior;
 use Demyan112rv\MountebankPHP\Predicate;
+use Demyan112rv\MountebankPHP\Predicate\XPath;
+use Demyan112rv\MountebankPHP\Predicate\JsonPath;
 
-// Response for stub
+// Response for stub          
 $response = new Response(Response::TYPE_IS);
 $response->setConfig([
     'statusCode' => 200,
     'headers' => ['Content-Type' => 'application/json'],
     'body' => ['foo' => 'bar']
-]);
+])->addBehavior((new Behavior())->setType(Behavior::TYPE_WAIT)->setConfig(500));
 
 // Predicate for stub
 $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
-$predicate->setConfig(['path' => '/test']);
+$predicate->setConfig(['path' => '/test'])
+    ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
+    ->setJsonPath((new JsonPath())->setSelector('selector'));
 
 // Stub for imposter
 $stub = new Stub();
