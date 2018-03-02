@@ -4,6 +4,13 @@ declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP;
 
+use Demyan112rv\MountebankPHP\Response\Behavior;
+
+/**
+ * Class Formatter
+ * @package Demyan112rv\MountebankPHP
+ * @since 0.1
+ */
 class Formatter
 {
     /**
@@ -73,7 +80,7 @@ class Formatter
         if ($response->getBehaviors()) {
             $array['_behaviors'] = [];
             foreach ($response->getBehaviors() as $behavior) {
-                $array['_behaviors'][$behavior->getType()] = $behavior->getConfig();
+                $array['_behaviors'][$behavior->getType()] = $this->behaviorConfig($behavior);
             }
         }
 
@@ -105,5 +112,34 @@ class Formatter
         }
 
         return $array;
+    }
+
+    private function behaviorConfig(Behavior $behavior)
+    {
+        $config = $behavior->getConfig();
+        switch (true) {
+            case $config instanceof Behavior\Config\Wait:
+                $result = $config->getJs() ?? $config->getValue();
+                break;
+            case $config instanceof Behavior\Config\Repeat:
+                $result = $config->getValue();
+                break;
+            case $config instanceof Behavior\Config\Copy:
+                $result = $config->getValues();
+                break;
+            case $config instanceof Behavior\Config\Lookup:
+                $result = $config->getValues();
+                break;
+            case $config instanceof Behavior\Config\Decorate:
+                $result = $config->getJs();
+                break;
+            case $config instanceof Behavior\Config\ShellTransform:
+                $result = $config->getValues();
+                break;
+            default:
+                throw new \InvalidArgumentException('Unknown behavior config class');
+        }
+
+        return $result;
     }
 }

@@ -24,7 +24,27 @@ class FormatterTest extends TestCase
                 'headers' => ['Content-Type' => 'application/json'],
                 'body' => ['foo' => 'bar']
             ])
-            ->addBehavior((new Behavior(Behavior::TYPE_WAIT))->setConfig(500));
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_WAIT))->setConfig((new Behavior\Config\Wait())->setValue(500))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_WAIT))->setConfig((new Behavior\Config\Wait())->setJs('js'))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_REPEAT))->setConfig((new Behavior\Config\Repeat())->setValue(3))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_COPY))->setConfig((new Behavior\Config\Copy())->setValues([['foo'], ['bar']]))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_LOOKUP))->setConfig((new Behavior\Config\Lookup())->setValues([['foo'], ['bar']]))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate())->setJs('js'))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues([['foo'], ['bar']]))
+            );
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
         $predicate->setConfig(['path' => '/test'])
@@ -65,11 +85,31 @@ class FormatterTest extends TestCase
     {
         $response = new Response(Response::TYPE_IS);
         $response->setConfig([
-            'statusCode' => 200,
-            'headers' => ['Content-Type' => 'application/json'],
-            'body' => ['foo' => 'bar']
-        ])
-            ->addBehavior((new Behavior(Behavior::TYPE_WAIT))->setConfig(500));
+                'statusCode' => 200,
+                'headers' => ['Content-Type' => 'application/json'],
+                'body' => ['foo' => 'bar']
+            ])
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_WAIT))->setConfig((new Behavior\Config\Wait())->setValue(500))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_WAIT))->setConfig((new Behavior\Config\Wait())->setJs('js'))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_REPEAT))->setConfig((new Behavior\Config\Repeat())->setValue(3))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_COPY))->setConfig((new Behavior\Config\Copy())->setValues([['foo'], ['bar']]))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_LOOKUP))->setConfig((new Behavior\Config\Lookup())->setValues([['foo'], ['bar']]))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate())->setJs('js'))
+            )
+            ->addBehavior(
+                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues([['foo'], ['bar']]))
+            );
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
         $predicate->setConfig(['path' => '/test'])

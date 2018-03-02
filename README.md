@@ -27,7 +27,11 @@ $response->setConfig([
     'statusCode' => 200,
     'headers' => ['Content-Type' => 'application/json'],
     'body' => ['foo' => 'bar']
-])->addBehavior((new Behavior())->setType(Behavior::TYPE_WAIT)->setConfig(500));
+])->addBehavior(
+    (new Behavior())
+        ->setType(Behavior::TYPE_WAIT)
+        ->setConfig((new Behavior\Config\Wait())->setValue(500))
+);
 
 // Predicate for stub
 $predicate = new Predicate(Predicate::OPERATOR_EQUALS);

@@ -13,7 +13,7 @@ class ResponseTest extends TestCase
     public function testFill()
     {
         $behavior = new Behavior();
-        $behavior->setType(Behavior::TYPE_WAIT)->setConfig(500);
+        $behavior->setType(Behavior::TYPE_WAIT)->setConfig((new Behavior\Config\Wait())->setValue(500));
 
         $response = new Response(Response::TYPE_IS);
         $response->setConfig([

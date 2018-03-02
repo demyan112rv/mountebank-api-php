@@ -6,6 +6,11 @@ namespace Demyan112rv\MountebankPHP;
 
 use Demyan112rv\MountebankPHP\Response\Behavior;
 
+/**
+ * Class Response
+ * @package Demyan112rv\MountebankPHP
+ * @since 0.1
+ */
 class Response
 {
     const TYPE_IS = 'is';

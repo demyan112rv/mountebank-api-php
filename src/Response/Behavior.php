@@ -4,6 +4,14 @@ declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP\Response;
 
+use Demyan112rv\MountebankPHP\Response\Behavior\Config;
+
+/**
+ * Class Behavior
+ * @package Demyan112rv\MountebankPHP\Response
+ * @see http://www.mbtest.org/docs/api/behaviors
+ * @since 0.5
+ */
 class Behavior
 {
     const TYPE_WAIT = 'wait';
@@ -19,7 +27,7 @@ class Behavior
     protected $type;
 
     /**
-     * @var mixed
+     * @var Config
      */
     protected $config;
 
@@ -71,7 +79,7 @@ class Behavior
     }
 
     /**
-     * @return mixed
+     * @return Config
      */
     public function getConfig()
     {
@@ -79,10 +87,10 @@ class Behavior
     }
 
     /**
-     * @param mixed $config
+     * @param Config $config
      * @return Behavior
      */
-    public function setConfig($config): Behavior
+    public function setConfig(Config $config): Behavior
     {
         $this->config = $config;
         return $this;
