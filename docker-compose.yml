@@ -4,7 +4,10 @@ services:
         container_name: mountebank_server
         image: andyrbell/mountebank
         ports:
+            # base port for mountebank
             - 2525:2525
+            # example ports for imposters
+            - 4444-4455:4444-4455
 
     php:
         container_name: mountebank_php
