@@ -10,10 +10,7 @@ Mountebank API PHP
 
 ## Install
 
-```
-composer require demyan112rv/mountebank-api-php
-
-```
+    composer require demyan112rv/mountebank-api-php
 
 ## Usage basics
 
@@ -52,6 +49,8 @@ $predicate->setConfig(['path' => '/test'])
 ### Stub for imposter
 
 ```php
+use Demyan112rv\MountebankPHP\Stub;
+
 $stub = new Stub();
 $stub->addResponse($response)->addPredicate($predicate);
 
