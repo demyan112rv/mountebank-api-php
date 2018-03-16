@@ -24,17 +24,8 @@ class MountebankTest extends TestCase
 
         $this->assertEquals('http://test.com', $mb->getHost());
         $this->assertEquals(1234, $mb->getPort());
-
-        $imposter = (new Imposter())
-            ->setName('Imposter name')
-            ->setPort(1234)
-            ->setProtocol(Imposter::PROTOCOL_HTTP);
-
-        $response = $mb->removeImposters();
-        $this->assertTrue($response instanceof Response);
-        $response = $mb->addImposter($imposter);
-        $this->assertTrue($response instanceof Response);
-        $response = $mb->getImposters();
-        $this->assertTrue($response instanceof Response);
+        $this->assertEquals('http://test.com:1234/' . Mountebank::URI_CONFIG, $mb->getConfigUrl());
+        $this->assertEquals('http://test.com:1234/' . Mountebank::URI_LOGS, $mb->getLogsUrl());
+        $this->assertEquals('http://test.com:1234/' . Mountebank::URI_IMPOSTERS, $mb->getImpostersUrl());
     }
 }

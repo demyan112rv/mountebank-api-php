@@ -16,6 +16,8 @@ use Psr\Http\Message\ResponseInterface;
 class Mountebank
 {
     const URI_IMPOSTERS = 'imposters';
+    const URI_CONFIG = 'config';
+    const URI_LOGS = 'logs';
 
     /**
      * @var ClientInterface
@@ -80,12 +82,29 @@ class Mountebank
     /**
      * @return string
      */
-    protected function getImpostersUrl(): string
+    public function getImpostersUrl(): string
     {
         return $this->host . ':' . $this->port . '/' . static::URI_IMPOSTERS;
     }
 
     /**
+     * @return string
+     */
+    public function getLogsUrl(): string
+    {
+        return $this->host . ':' . $this->port . '/' . static::URI_LOGS;
+    }
+
+    /**
+     * @return string
+     */
+    public function getConfigUrl(): string
+    {
+        return $this->host . ':' . $this->port . '/' . static::URI_CONFIG;
+    }
+
+    /**
+     * @codeCoverageIgnore
      * @param int $port
      * @return ResponseInterface
      */
@@ -95,6 +114,7 @@ class Mountebank
     }
 
     /**
+     * @codeCoverageIgnore
      * @return ResponseInterface
      */
     public function getImposters(): ResponseInterface
@@ -103,6 +123,7 @@ class Mountebank
     }
 
     /**
+     * @codeCoverageIgnore
      * @param Imposter $imposter
      * @return ResponseInterface
      */
@@ -119,6 +140,7 @@ class Mountebank
     }
 
     /**
+     * @codeCoverageIgnore
      * @param int $port
      * @return ResponseInterface
      */
@@ -128,10 +150,29 @@ class Mountebank
     }
 
     /**
+     * @codeCoverageIgnore
      * @return ResponseInterface
      */
     public function removeImposters(): ResponseInterface
     {
         return $this->client->request('DELETE', $this->getImpostersUrl());
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @return ResponseInterface
+     */
+    public function getConfig(): ResponseInterface
+    {
+        return $this->client->request('GET', $this->getConfigUrl());
+    }
+
+    /**
+     * @codeCoverageIgnore
+     * @return ResponseInterface
+     */
+    public function getLogs(): ResponseInterface
+    {
+        return $this->client->request('GET', $this->getLogsUrl());
     }
 }
