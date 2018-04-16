@@ -45,7 +45,7 @@ class Formatter
         }
 
         if ($this->imposter->getDefaultResponse()) {
-            $array['defaultResponse'] = $this->responseToArray($this->imposter->getDefaultResponse());
+            $array['defaultResponse'] = $this->imposter->getDefaultResponse()->getConfig();
         }
 
         return $array;
