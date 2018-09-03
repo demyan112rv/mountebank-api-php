@@ -113,7 +113,7 @@ class Predicate
      */
     public function setOperator(string $operator): self
     {
-        if (!in_array($operator, static::getOperators())) {
+        if (!\in_array($operator, static::getOperators())) {
             throw new \InvalidArgumentException();
         }
         $this->operator = $operator;

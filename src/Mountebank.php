@@ -131,7 +131,7 @@ class Mountebank
     {
         $formattedImposter = (new Formatter($imposter))->toArray();
         return $this->client->request('POST', $this->getImpostersUrl(), [
-            RequestOptions::BODY => json_encode($formattedImposter),
+            RequestOptions::BODY => \json_encode($formattedImposter),
             RequestOptions::HEADERS => [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json'

@@ -23,7 +23,7 @@ class Formatter
         $this->imposter = $imposter;
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         $stubs = [];
         foreach ($this->imposter->getStubs() as $s => $stub) {

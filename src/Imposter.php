@@ -114,7 +114,7 @@ class Imposter
      */
     public function setProtocol(string $protocol): Imposter
     {
-        if (!in_array($protocol, static::getProtocols())) {
+        if (!\in_array($protocol, static::getProtocols())) {
             throw new \InvalidArgumentException();
         }
         $this->protocol = $protocol;

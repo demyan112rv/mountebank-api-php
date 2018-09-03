@@ -70,7 +70,7 @@ class Response
      */
     public function setType(string $type): Response
     {
-        if (!in_array($type, static::getTypes())) {
+        if (!\in_array($type, static::getTypes())) {
             throw new \InvalidArgumentException();
         }
         $this->type = $type;
