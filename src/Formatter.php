@@ -44,7 +44,7 @@ class Formatter
             $array['mutualAuth'] = $this->imposter->isMutualAuth();
         }
 
-        if ($this->imposter->getDefaultResponse()) {
+        if ($this->imposter->getDefaultResponse() !== null) {
             $array['defaultResponse'] = $this->imposter->getDefaultResponse()->getConfig();
         }
 
@@ -98,14 +98,14 @@ class Formatter
             'except' => $predicate->getExcept(),
         ];
 
-        if ($predicate->getXPath()) {
+        if ($predicate->getXPath() !== null) {
             $array['xpath'] = [
                 'selector' => $predicate->getXPath()->getSelector(),
                 'ns' => $predicate->getXPath()->getNs(),
             ];
         }
 
-        if ($predicate->getJsonPath()) {
+        if ($predicate->getJsonPath() !== null) {
             $array['jsonpath'] = [
                 'selector' => $predicate->getJsonPath()->getSelector()
             ];
