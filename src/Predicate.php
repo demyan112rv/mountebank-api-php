@@ -23,7 +23,7 @@ class Predicate
     const OPERATOR_EXISTS = 'exists';
     const OPERATOR_NOT = 'not';
     const OPERATOR_OR = 'or';
-    const OPERATOR_END = 'end';
+    const OPERATOR_AND = 'and';
     const OPERATOR_INJECT = 'inject';
 
     /**
@@ -94,7 +94,7 @@ class Predicate
             static::OPERATOR_EXISTS,
             static::OPERATOR_NOT,
             static::OPERATOR_OR,
-            static::OPERATOR_END,
+            static::OPERATOR_AND,
             static::OPERATOR_INJECT,
         ];
     }
