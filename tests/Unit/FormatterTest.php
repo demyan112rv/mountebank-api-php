@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 
 class FormatterTest extends TestCase
 {
-    public function testHttps()
+    public function testHttps(): void
     {
         $response = new Response(Response::TYPE_IS);
         $response->setConfig([
@@ -81,7 +81,7 @@ class FormatterTest extends TestCase
         $this->assertArrayHasKey('defaultResponse', $array);
     }
 
-    public function testHttp()
+    public function testHttp(): void
     {
         $response = new Response(Response::TYPE_IS);
         $response->setConfig([

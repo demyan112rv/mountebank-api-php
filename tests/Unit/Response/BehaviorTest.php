@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class BehaviorTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $behavior = new Behavior();
         $behavior->setType(Behavior::TYPE_WAIT)->setConfig((new Behavior\Config\Wait())->setValue(500));
@@ -19,7 +19,7 @@ class BehaviorTest extends TestCase
         $this->assertTrue($behavior->getConfig() instanceof Behavior\Config\Wait);
     }
 
-    public function testWrongType()
+    public function testWrongType(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         new Behavior('Wrong type');

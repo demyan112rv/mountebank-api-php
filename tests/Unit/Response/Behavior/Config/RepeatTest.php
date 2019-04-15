@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class RepeatTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $config = new Repeat();
         $config->setValue(3);

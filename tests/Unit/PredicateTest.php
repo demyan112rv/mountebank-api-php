@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class PredicateTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
         $predicate->setConfig(['path' => '/test'])
@@ -31,7 +31,7 @@ class PredicateTest extends TestCase
 
     }
 
-    public function testWrongType()
+    public function testWrongType(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         new Predicate('Wrong operator');

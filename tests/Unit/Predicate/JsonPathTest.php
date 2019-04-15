@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class JsonPathTest extends TestCase
 {
 
-    public function testFill()
+    public function testFill(): void
     {
         $jsonPath = new JsonPath();
         $jsonPath->setSelector('selector');

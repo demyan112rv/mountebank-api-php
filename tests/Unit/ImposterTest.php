@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class ImposterTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $imposter = new Imposter();
         $imposter->setName('Test imposter')
@@ -40,7 +40,7 @@ class ImposterTest extends TestCase
         $this->assertCount(2, $imposter->getStubs());
     }
 
-    public function testWrongType()
+    public function testWrongType(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         $imposter = new Imposter();

@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class ShellTransformTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $config = new ShellTransform();
         $config->setValues([['foo'], ['bar']]);

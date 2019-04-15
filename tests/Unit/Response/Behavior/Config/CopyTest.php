@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class CopyTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $config = new Copy();
         $config->setValues([['foo'], ['bar']]);

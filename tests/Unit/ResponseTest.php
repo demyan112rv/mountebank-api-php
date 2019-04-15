@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 
 class ResponseTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $behavior = new Behavior();
         $behavior->setType(Behavior::TYPE_WAIT)->setConfig((new Behavior\Config\Wait())->setValue(500));
@@ -35,7 +35,7 @@ class ResponseTest extends TestCase
         $this->assertCount(2, $response->getBehaviors());
     }
 
-    public function testWrongType()
+    public function testWrongType(): void
     {
         $this->expectException(\InvalidArgumentException::class);
         new Response('Wrong type');

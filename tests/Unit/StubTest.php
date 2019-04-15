@@ -11,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class StubTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $response = new Response(Response::TYPE_IS);
         $response->setConfig([

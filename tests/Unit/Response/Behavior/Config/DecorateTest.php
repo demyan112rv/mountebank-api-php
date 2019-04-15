@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class DecorateTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $config = new Decorate();
         $config->setJs('js string');

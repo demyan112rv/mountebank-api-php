@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class WaitTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $config = new Wait();
         $config->setValue(500);

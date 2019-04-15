@@ -10,7 +10,7 @@ use PHPUnit\Framework\TestCase;
 class XPathTest extends TestCase
 {
 
-    public function testFill()
+    public function testFill(): void
     {
         $xPath = new XPath();
         $xPath->setSelector('selector')->setNs(['foo' => 'bar']);

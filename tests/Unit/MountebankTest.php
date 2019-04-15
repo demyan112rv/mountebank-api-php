@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP\Tests\Unit;
 
-use Demyan112rv\MountebankPHP\Imposter;
 use Demyan112rv\MountebankPHP\Mountebank;
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
@@ -12,7 +11,7 @@ use PHPUnit\Framework\TestCase;
 
 class MountebankTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $responseMock = $this->createMock(Response::class);
 

@@ -9,7 +9,7 @@ use PHPUnit\Framework\TestCase;
 
 class LookupTest extends TestCase
 {
-    public function testFill()
+    public function testFill(): void
     {
         $config = new Lookup();
         $config->setValues([['foo'], ['bar']]);
