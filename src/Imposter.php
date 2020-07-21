@@ -75,6 +75,12 @@ class Imposter
     protected $allowCORS = false;
 
     /**
+     * If true, mountebank will record requests to enable mock verification
+     * @var bool
+     */
+    protected $recordRequests = false;
+
+    /**
      * @return array
      */
     public static function getProtocols(): array
@@ -256,6 +262,22 @@ class Imposter
         $this->allowCORS = $allowCORS;
         return $this;
     }
-    
-    
+
+    /**
+     * @return bool
+     */
+    public function isRecordRequests(): bool
+    {
+        return $this->recordRequests;
+    }
+
+    /**
+     * @param bool $recordRequests
+     * @return Imposter
+     */
+    public function setRecordRequests(bool $recordRequests): Imposter
+    {
+        $this->recordRequests = $recordRequests;
+        return $this;
+    }
 }

@@ -36,6 +36,7 @@ class Formatter
             'name' => $this->imposter->getName(),
             'stubs' => $stubs,
             'allowCORS' => $this->imposter->isAllowCORS(),
+            'recordRequests' => $this->imposter->isRecordRequests(),
         ];
 
         if ($this->imposter->getProtocol() === Imposter::PROTOCOL_HTTPS) {

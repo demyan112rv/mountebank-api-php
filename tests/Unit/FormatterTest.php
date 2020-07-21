@@ -65,7 +65,8 @@ class FormatterTest extends TestCase
             ->setCert('cert')
             ->setMutualAuth(true)
             ->setDefaultResponse(new Response())
-            ->setAllowCORS(true);
+            ->setAllowCORS(true)
+            ->setRecordRequests(true);
 
         $formatter = new Formatter($imposter);
         $array = $formatter->toArray();
@@ -75,6 +76,7 @@ class FormatterTest extends TestCase
         $this->assertArrayHasKey('name', $array);
         $this->assertArrayHasKey('stubs', $array);
         $this->assertArrayHasKey('allowCORS', $array);
+        $this->assertArrayHasKey('recordRequests', $array);
         $this->assertArrayHasKey('key', $array);
         $this->assertArrayHasKey('cert', $array);
         $this->assertArrayHasKey('mutualAuth', $array);
@@ -127,7 +129,8 @@ class FormatterTest extends TestCase
             ->setProtocol(Imposter::PROTOCOL_HTTP)
             ->addStub($stub)
             ->setDefaultResponse(new Response())
-            ->setAllowCORS(true);
+            ->setAllowCORS(true)
+            ->setRecordRequests(true);
 
         $formatter = new Formatter($imposter);
         $array = $formatter->toArray();
@@ -137,6 +140,7 @@ class FormatterTest extends TestCase
         $this->assertArrayHasKey('name', $array);
         $this->assertArrayHasKey('stubs', $array);
         $this->assertArrayHasKey('allowCORS', $array);
+        $this->assertArrayHasKey('recordRequests', $array);
         $this->assertArrayHasKey('defaultResponse', $array);
     }
 }
