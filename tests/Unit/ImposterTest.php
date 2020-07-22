@@ -22,7 +22,7 @@ class ImposterTest extends TestCase
             ->setCert('cert')
             ->setMutualAuth(true)
             ->setDefaultResponse(new Response())
-            ->setAllowCORS(true);
+            ->setAllowCORS(true)
             ->setRecordRequests(true);
 
         $this->assertNotEmpty($imposter->getName());
