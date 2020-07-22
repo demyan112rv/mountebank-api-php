@@ -23,6 +23,7 @@ class ImposterTest extends TestCase
             ->setMutualAuth(true)
             ->setDefaultResponse(new Response())
             ->setAllowCORS(true);
+            ->setRecordRequests(true);
 
         $this->assertNotEmpty($imposter->getName());
         $this->assertNotEmpty($imposter->getPort());
@@ -32,6 +33,7 @@ class ImposterTest extends TestCase
         $this->assertTrue($imposter->getDefaultResponse() instanceof Response);
         $this->assertTrue($imposter->isMutualAuth());
         $this->assertTrue($imposter->isAllowCORS());
+        $this->assertTrue($imposter->isRecordRequests());
         $this->assertTrue($imposter->getStubs()[0] instanceof Stub);
         $this->assertCount(1, $imposter->getStubs());
 
