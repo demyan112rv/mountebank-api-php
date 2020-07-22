@@ -22,7 +22,7 @@ before_script:
 
 script:
   - phpunit --verbose --coverage-clover build/logs/clover.xml
-  - ./vendor/bin/phpstan analyse src --level 7
+  - ./vendor/bin/phpstan analyse -c phpstan.neon
 
 after_success:
   - travis_retry php vendor/bin/php-coveralls -v

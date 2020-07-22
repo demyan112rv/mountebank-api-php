@@ -115,6 +115,10 @@ class Formatter
         return $array;
     }
 
+    /**
+     * @param Behavior $behavior
+     * @return array|int|string|null
+     */
     private function behaviorConfig(Behavior $behavior)
     {
         $config = $behavior->getConfig();
