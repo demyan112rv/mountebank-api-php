@@ -21,7 +21,7 @@ before_script:
   - ls -al
 
 script:
-  - phpunit --verbose --coverage-clover build/logs/clover.xml
+  - ./vendor/bin/phpunit --verbose --coverage-clover build/logs/clover.xml
   - ./vendor/bin/phpstan analyse -c phpstan.neon
 
 after_success:
