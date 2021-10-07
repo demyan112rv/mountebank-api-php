@@ -5,7 +5,7 @@ Mountebank API PHP
 [![Total Downloads](https://poser.pugx.org/demyan112rv/mountebank-api-php/downloads)](https://packagist.org/packages/demyan112rv/mountebank-api-php)
 [![License](https://poser.pugx.org/demyan112rv/mountebank-api-php/license)](https://packagist.org/packages/demyan112rv/mountebank-api-php)
 [![PHPStan](https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg)](https://github.com/phpstan/phpstan)
-[![Build Status](https://travis-ci.org/demyan112rv/mountebank-api-php.svg?branch=master)](https://travis-ci.org/demyan112rv/mountebank-api-php)
+[![Build Status](https://api.travis-ci.com/demyan112rv/mountebank-api-php.svg?branch=master&status=passed)](https://travis-ci.org/demyan112rv/mountebank-api-php)
 [![Coverage Status](https://coveralls.io/repos/github/demyan112rv/mountebank-api-php/badge.svg?branch=master)](https://coveralls.io/github/demyan112rv/mountebank-api-php?branch=master)
 
 What is the Mountebank? See original [documentation](http://www.mbtest.org/) for understanding.
