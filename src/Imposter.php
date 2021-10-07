@@ -82,6 +82,12 @@ class Imposter
     protected $recordRequests = false;
 
     /**
+     * Only use for support mb-graphl (https://github.com/bashj79/mb-graphql)
+     * @var string
+     */
+    protected $schema = '';
+
+    /**
      * @return array
      */
     public static function getProtocols(): array
@@ -285,6 +291,24 @@ class Imposter
     public function setRecordRequests(bool $recordRequests): Imposter
     {
         $this->recordRequests = $recordRequests;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSchema(): string
+    {
+        return $this->schema;
+    }
+
+    /**
+     * @param string $schema
+     * @return Imposter
+     */
+    public function setSchema(string $schema): Imposter
+    {
+        $this->schema = $schema;
         return $this;
     }
 }

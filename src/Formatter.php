@@ -33,6 +33,7 @@ class Formatter
         $array = [
             'port' => $this->imposter->getPort(),
             'protocol' => $this->imposter->getProtocol(),
+            'schema' => $this->imposter->getSchema(),
             'name' => $this->imposter->getName(),
             'stubs' => $stubs,
             'allowCORS' => $this->imposter->isAllowCORS(),
