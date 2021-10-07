@@ -50,6 +50,10 @@ class Formatter
             $array['defaultResponse'] = $this->imposter->getDefaultResponse()->getConfig();
         }
 
+        if ($this->imposter->getSchema() !== null) {
+            $array['schema'] = $this->imposter->getSchema();
+        }
+
         return $array;
     }
 

@@ -83,9 +83,9 @@ class Imposter
 
     /**
      * Only use for support mb-graphl (https://github.com/bashj79/mb-graphql)
-     * @var string
+     * @var string|null
      */
-    protected $schema = '';
+    protected $schema = null;
 
     /**
      * @return array
@@ -295,18 +295,18 @@ class Imposter
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getSchema(): string
+    public function getSchema(): ?string
     {
         return $this->schema;
     }
 
     /**
-     * @param string $schema
+     * @param null|string $schema
      * @return Imposter
      */
-    public function setSchema(string $schema): Imposter
+    public function setSchema(?string $schema): Imposter
     {
         $this->schema = $schema;
         return $this;
