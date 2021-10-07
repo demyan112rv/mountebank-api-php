@@ -15,6 +15,7 @@ class Imposter
     const PROTOCOL_HTTPS = 'https';
     const PROTOCOL_TCP = 'tcp';
     const PROTOCOL_SMTP = 'smtp';
+    const PROTOCOL_GRAPHQL = 'graphql';
 
     /**
      * The port to run the imposter on.
