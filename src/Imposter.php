@@ -86,7 +86,13 @@ class Imposter
      */
     public static function getProtocols(): array
     {
-        return [static::PROTOCOL_HTTP, static::PROTOCOL_HTTPS, static::PROTOCOL_TCP, static::PROTOCOL_SMTP];
+        return [
+            static::PROTOCOL_HTTP,
+            static::PROTOCOL_HTTPS,
+            static::PROTOCOL_TCP,
+            static::PROTOCOL_SMTP,
+            static::PROTOCOL_GRAPHQL
+        ];
     }
 
     /**
