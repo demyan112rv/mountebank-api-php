@@ -143,4 +143,18 @@ class FormatterTest extends TestCase
         $this->assertArrayHasKey('recordRequests', $array);
         $this->assertArrayHasKey('defaultResponse', $array);
     }
+
+    public function testSchemaAttached(): void
+    {
+        $imposter = new Imposter();
+        $imposter->setName('Test imposter')
+            ->setPort(1234)
+            ->setProtocol(Imposter::PROTOCOL_HTTP)
+            ->setSchema('Test Schema');
+
+        $formatter = new Formatter($imposter);
+        $array = $formatter->toArray();
+
+        $this->assertArrayHasKey('schema', $array);
+    }
 }
