@@ -15,6 +15,7 @@ class Imposter
     const PROTOCOL_HTTPS = 'https';
     const PROTOCOL_TCP = 'tcp';
     const PROTOCOL_SMTP = 'smtp';
+    const PROTOCOL_GRAPHQL = 'graphql';
 
     /**
      * The port to run the imposter on.
@@ -81,11 +82,23 @@ class Imposter
     protected $recordRequests = false;
 
     /**
+     * Only use for support mb-graphl (https://github.com/bashj79/mb-graphql)
+     * @var string|null
+     */
+    protected $schema = null;
+
+    /**
      * @return array
      */
     public static function getProtocols(): array
     {
-        return [static::PROTOCOL_HTTP, static::PROTOCOL_HTTPS, static::PROTOCOL_TCP, static::PROTOCOL_SMTP];
+        return [
+            static::PROTOCOL_HTTP,
+            static::PROTOCOL_HTTPS,
+            static::PROTOCOL_TCP,
+            static::PROTOCOL_SMTP,
+            static::PROTOCOL_GRAPHQL
+        ];
     }
 
     /**
@@ -278,6 +291,24 @@ class Imposter
     public function setRecordRequests(bool $recordRequests): Imposter
     {
         $this->recordRequests = $recordRequests;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSchema(): ?string
+    {
+        return $this->schema;
+    }
+
+    /**
+     * @param null|string $schema
+     * @return Imposter
+     */
+    public function setSchema(?string $schema): Imposter
+    {
+        $this->schema = $schema;
         return $this;
     }
 }
