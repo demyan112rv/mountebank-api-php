@@ -17,6 +17,7 @@ class ImposterTest extends TestCase
         $imposter->setName('Test imposter')
             ->setPort(1234)
             ->setProtocol(Imposter::PROTOCOL_HTTP)
+            ->setSchema('Test schema')
             ->setStubs([new Stub()])
             ->setKey('key')
             ->setCert('cert')
@@ -28,6 +29,7 @@ class ImposterTest extends TestCase
         $this->assertNotEmpty($imposter->getName());
         $this->assertNotEmpty($imposter->getPort());
         $this->assertNotEmpty($imposter->getProtocol());
+        $this->assertNotEmpty($imposter->getSchema());
         $this->assertNotEmpty($imposter->getKey());
         $this->assertNotEmpty($imposter->getCert());
         $this->assertTrue($imposter->getDefaultResponse() instanceof Response);
