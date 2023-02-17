@@ -15,29 +15,22 @@ use Demyan112rv\MountebankPHP\Response\Behavior\Config;
 class ShellTransform implements Config
 {
     /**
-     * Each array element represents the path of a command line application.
-     * The application should accept the JSON-encoded request and response as arguments
-     * and print out the transformed response to stdout.
+     * Represents the path to a command line application.
+     * The application should retrieve the JSON-encoded request
+     * and response from the environment and print out the transformed response to stdout.
      *
-     * @var array
+     * The --allowInjection command line flag must be set to support this behavior.
      */
-    protected $values;
+    private string $value;
 
-    /**
-     * @return array
-     */
-    public function getValues(): array
+    public function getValue(): string
     {
-        return $this->values;
+        return $this->value;
     }
 
-    /**
-     * @param array $values
-     * @return ShellTransform
-     */
-    public function setValues(array $values): ShellTransform
+    public function setValues(string $value): ShellTransform
     {
-        $this->values = $values;
+        $this->value = $value;
         return $this;
     }
 }

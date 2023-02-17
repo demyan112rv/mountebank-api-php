@@ -15,12 +15,12 @@ class Stub
     /**
      * @var Response[]
      */
-    protected $responses = [];
+    private array $responses = [];
 
     /**
      * @var Predicate[]
      */
-    protected $predicates = [];
+    private array $predicates = [];
 
     /**
      * @return Response[]
@@ -32,7 +32,6 @@ class Stub
 
     /**
      * @param Response[] $responses
-     * @return Stub
      */
     public function setResponses(array $responses): self
     {
@@ -42,7 +41,6 @@ class Stub
 
     /**
      * @param Response $response
-     * @return Stub
      */
     public function addResponse(Response $response): self
     {
@@ -60,7 +58,6 @@ class Stub
 
     /**
      * @param Predicate[] $predicates
-     * @return Stub
      */
     public function setPredicates(array $predicates): self
     {
@@ -70,7 +67,6 @@ class Stub
 
     /**
      * @param Predicate $predicate
-     * @return Stub
      */
     public function addPredicate(Predicate $predicate): self
     {

@@ -16,27 +16,20 @@ class XPath
      * The XPath selector
      * @var string
      */
-    protected $selector;
+    protected string $selector;
 
     /**
      * The XPath namespace map, aliasing a prefix to a URL,
      * which allows you to use the prefix in the selector.
-     * @var array
+     * @var array<string, string>
      */
-    protected $ns;
+    protected array $ns;
 
-    /**
-     * @return string
-     */
     public function getSelector(): string
     {
         return $this->selector;
     }
 
-    /**
-     * @param string $selector
-     * @return XPath
-     */
     public function setSelector(string $selector): self
     {
         $this->selector = $selector;
@@ -44,7 +37,7 @@ class XPath
     }
 
     /**
-     * @return array
+     * @return array<string, string>
      */
     public function getNs(): array
     {
@@ -52,8 +45,7 @@ class XPath
     }
 
     /**
-     * @param array $ns
-     * @return XPath
+     * @param array<string, string> $ns
      */
     public function setNs(array $ns): self
     {

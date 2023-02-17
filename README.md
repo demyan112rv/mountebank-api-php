@@ -16,6 +16,19 @@ This package is a php wrapper for [mountebank API](http://www.mbtest.org/docs/ap
 
     composer require demyan112rv/mountebank-api-php
 
+## Tests
+
+Before run tests install dependencies, build Docker images and run containers:
+    
+    composer install
+    docker-compose up
+
+Enter the container php container and run tests:
+    
+    docker exec -it mountebank_php bash
+    cd /var/www/mountebank-api-php
+    php vendor/bin/phpunit
+
 ## Usage basics
 
 

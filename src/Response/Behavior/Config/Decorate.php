@@ -22,20 +22,13 @@ class Decorate implements Config
      * The --allowInjection command line flag must be set to support passing in a JavaScript function
      * @var string
      */
-    protected $js;
+    private string $js;
 
-    /**
-     * @return string
-     */
     public function getJs(): string
     {
         return $this->js;
     }
 
-    /**
-     * @param string $js
-     * @return Decorate
-     */
     public function setJs(string $js): Decorate
     {
         $this->js = $js;

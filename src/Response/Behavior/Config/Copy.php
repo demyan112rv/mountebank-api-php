@@ -18,12 +18,12 @@ class Copy implements Config
      * A list of objects specifying the request field and response token,
      * as well as a way of selecting the value from the request field
      *
-     * @var array
+     * @var array<string, mixed>
      */
-    protected $values;
+    private array $values;
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function getValues(): array
     {
@@ -31,8 +31,7 @@ class Copy implements Config
     }
 
     /**
-     * @param array $values
-     * @return Copy
+     * @param array<string, mixed> $values
      */
     public function setValues(array $values): Copy
     {

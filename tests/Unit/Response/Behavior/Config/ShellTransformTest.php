@@ -12,8 +12,8 @@ class ShellTransformTest extends TestCase
     public function testFill(): void
     {
         $config = new ShellTransform();
-        $config->setValues([['foo'], ['bar']]);
-        $this->assertNotEmpty($config->getValues());
-        $this->assertTrue(is_array($config->getValues()));
+        $config->setValues('shell string');
+        $this->assertNotEmpty($config->getValue());
+        $this->assertSame('shell string', $config->getValue());
     }
 }

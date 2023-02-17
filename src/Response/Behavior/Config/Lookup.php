@@ -18,12 +18,12 @@ class Lookup implements Config
      * A list of objects specifying the key (copied from a request field),
      * the data source, and the response token
      *
-     * @var array
+     * @var array<string, mixed>
      */
-    protected $values;
+    private array $values;
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function getValues(): array
     {
@@ -31,8 +31,7 @@ class Lookup implements Config
     }
 
     /**
-     * @param array $values
-     * @return Lookup
+     * @param array<string, mixed> $values
      */
     public function setValues(array $values): Lookup
     {

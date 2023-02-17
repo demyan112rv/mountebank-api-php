@@ -13,16 +13,16 @@ use Demyan112rv\MountebankPHP\Response\Behavior;
  */
 class Formatter
 {
-    /**
-     * @var Imposter
-     */
-    protected $imposter;
+    private Imposter $imposter;
 
     public function __construct(Imposter $imposter)
     {
         $this->imposter = $imposter;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function toArray(): array
     {
         $stubs = [];
@@ -56,6 +56,9 @@ class Formatter
         return $array;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function stubToArray(Stub $stub): array
     {
         $array = [];
@@ -76,6 +79,9 @@ class Formatter
         return $array;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function responseToArray(Response $response): array
     {
         $key = $response->getType();
@@ -92,6 +98,9 @@ class Formatter
         return $array;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     private function predicateToArray(Predicate $predicate): array
     {
         $operator = $predicate->getOperator();
@@ -121,7 +130,7 @@ class Formatter
 
     /**
      * @param Behavior $behavior
-     * @return array|int|string|null
+     * @return array<string, mixed>|int|string|null
      */
     private function behaviorConfig(Behavior $behavior)
     {
@@ -143,7 +152,7 @@ class Formatter
                 $result = $config->getJs();
                 break;
             case $config instanceof Behavior\Config\ShellTransform:
-                $result = $config->getValues();
+                $result = $config->getValue();
                 break;
             default:
                 throw new \InvalidArgumentException('Unknown behavior config class');

@@ -19,21 +19,18 @@ class Imposter
 
     /**
      * The port to run the imposter on.
-     * @var int
      */
-    protected $port;
+    private int $port;
 
     /**
      * Defines the protocol that the imposter will respond to.
-     * @var string
      */
-    protected $protocol;
+    private string $protocol;
 
     /**
      * Optional. Allows you to provide a descriptive name that will show up in the logs and the imposters UI.
-     * @var string
      */
-    protected $name;
+    private string $name;
 
     /**
      * A set of behaviors used to generate a response for an imposter.
@@ -41,54 +38,47 @@ class Imposter
      * and support different responses.
      * @var Stub[]
      */
-    protected $stubs = [];
+    private array $stubs = [];
 
     /**
      * The SSL server private key
-     * @var string|null
      */
-    protected $key;
+    private ?string $key = null;
 
     /**
      * The SSL server certificate
-     * @var string|null
      */
-    protected $cert;
+    private ?string $cert = null;
 
     /**
      * If true, the server will request a client certificate.
      * Since the goal is simply to virtualize a server requiring mutual auth,
      * invalid certificates will not be rejected.
-     * @var bool
      */
-    protected $mutualAuth = false;
+    private bool $mutualAuth = false;
 
     /**
      * The default response to send if no predicate matches.
-     * @var Response|null
      */
-    protected $defaultResponse;
+    private ?Response $defaultResponse = null;
 
     /**
      * If true, mountebank will allow all CORS preflight requests on the imposter.
-     * @var bool
      */
-    protected $allowCORS = false;
+    private bool $allowCORS = false;
 
     /**
      * If true, mountebank will record requests to enable mock verification
-     * @var bool
      */
-    protected $recordRequests = false;
+    private bool $recordRequests = false;
 
     /**
      * Only use for support mb-graphl (https://github.com/bashj79/mb-graphql)
-     * @var string|null
      */
-    protected $schema = null;
+    private ?string $schema = null;
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getProtocols(): array
     {
@@ -101,36 +91,22 @@ class Imposter
         ];
     }
 
-    /**
-     * @return int
-     */
     public function getPort(): int
     {
         return $this->port;
     }
 
-    /**
-     * @param int $port
-     * @return Imposter
-     */
     public function setPort(int $port): Imposter
     {
         $this->port = $port;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getProtocol(): string
     {
         return $this->protocol;
     }
 
-    /**
-     * @param string $protocol
-     * @return Imposter
-     */
     public function setProtocol(string $protocol): Imposter
     {
         if (!\in_array($protocol, static::getProtocols())) {
@@ -140,18 +116,11 @@ class Imposter
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @param string $name
-     * @return Imposter
-     */
     public function setName(string $name): Imposter
     {
         $this->name = $name;
@@ -168,7 +137,6 @@ class Imposter
 
     /**
      * @param Stub[] $stubs
-     * @return Imposter
      */
     public function setStubs(array $stubs): Imposter
     {
@@ -176,136 +144,83 @@ class Imposter
         return $this;
     }
 
-    /**
-     * @param Stub $stub
-     * @return Imposter
-     */
     public function addStub(Stub $stub): Imposter
     {
         $this->stubs[] = $stub;
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getKey(): ?string
     {
         return $this->key;
     }
 
-    /**
-     * @param null|string $key
-     * @return Imposter
-     */
     public function setKey(?string $key): Imposter
     {
         $this->key = $key;
         return $this;
     }
 
-    /**
-     * @return null|string
-     */
     public function getCert(): ?string
     {
         return $this->cert;
     }
 
-    /**
-     * @param null|string $cert
-     * @return Imposter
-     */
     public function setCert(?string $cert): Imposter
     {
         $this->cert = $cert;
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isMutualAuth(): bool
     {
         return $this->mutualAuth;
     }
 
-    /**
-     * @param bool $mutualAuth
-     * @return Imposter
-     */
     public function setMutualAuth(bool $mutualAuth): Imposter
     {
         $this->mutualAuth = $mutualAuth;
         return $this;
     }
 
-    /**
-     * @return Response
-     */
     public function getDefaultResponse(): ?Response
     {
         return $this->defaultResponse;
     }
 
-    /**
-     * @param Response $defaultResponse
-     * @return Imposter
-     */
     public function setDefaultResponse(Response $defaultResponse): Imposter
     {
         $this->defaultResponse = $defaultResponse;
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isAllowCORS(): bool
     {
         return $this->allowCORS;
     }
 
-    /**
-     * @param bool $allowCORS
-     * @return Imposter
-     */
     public function setAllowCORS(bool $allowCORS): Imposter
     {
         $this->allowCORS = $allowCORS;
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isRecordRequests(): bool
     {
         return $this->recordRequests;
     }
 
-    /**
-     * @param bool $recordRequests
-     * @return Imposter
-     */
     public function setRecordRequests(bool $recordRequests): Imposter
     {
         $this->recordRequests = $recordRequests;
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
     public function getSchema(): ?string
     {
         return $this->schema;
     }
 
-    /**
-     * @param null|string $schema
-     * @return Imposter
-     */
     public function setSchema(?string $schema): Imposter
     {
         $this->schema = $schema;

@@ -19,85 +19,49 @@ class Mountebank
     const URI_CONFIG = 'config';
     const URI_LOGS = 'logs';
 
-    /**
-     * @var ClientInterface
-     */
-    protected $client;
+    private ClientInterface $client;
 
-    /**
-     * @var string
-     */
-    protected $host = 'http://localhost';
+    private string $host = 'http://localhost';
 
-    /**
-     * @var int
-     */
-    protected $port = 2525;
+    private int $port = 2525;
 
-    /**
-     * Mountebank constructor.
-     * @param ClientInterface $client
-     */
     public function __construct(ClientInterface $client)
     {
         $this->client = $client;
     }
 
-    /**
-     * @return string
-     */
     public function getHost(): string
     {
         return $this->host;
     }
 
-    /**
-     * @param string $host
-     * @return Mountebank
-     */
     public function setHost(string $host): self
     {
         $this->host = $host;
         return $this;
     }
 
-    /**
-     * @return int
-     */
     public function getPort(): int
     {
         return $this->port;
     }
 
-    /**
-     * @param int $port
-     * @return Mountebank
-     */
     public function setPort(int $port): self
     {
         $this->port = $port;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getImpostersUrl(): string
     {
         return $this->host . ':' . $this->port . '/' . static::URI_IMPOSTERS;
     }
 
-    /**
-     * @return string
-     */
     public function getLogsUrl(): string
     {
         return $this->host . ':' . $this->port . '/' . static::URI_LOGS;
     }
 
-    /**
-     * @return string
-     */
     public function getConfigUrl(): string
     {
         return $this->host . ':' . $this->port . '/' . static::URI_CONFIG;
@@ -105,8 +69,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @param int $port
-     * @return ResponseInterface
      */
     public function getImposter(int $port): ResponseInterface
     {
@@ -115,7 +77,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @return ResponseInterface
      */
     public function getImposters(): ResponseInterface
     {
@@ -124,8 +85,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @param Imposter $imposter
-     * @return ResponseInterface
      */
     public function addImposter(Imposter $imposter): ResponseInterface
     {
@@ -141,8 +100,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @param int $port
-     * @return ResponseInterface
      */
     public function removeImposter(int $port): ResponseInterface
     {
@@ -151,7 +108,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @return ResponseInterface
      */
     public function removeImposters(): ResponseInterface
     {
@@ -160,7 +116,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @return ResponseInterface
      */
     public function getConfig(): ResponseInterface
     {
@@ -169,7 +124,6 @@ class Mountebank
 
     /**
      * @codeCoverageIgnore
-     * @return ResponseInterface
      */
     public function getLogs(): ResponseInterface
     {

@@ -21,29 +21,19 @@ class Behavior
     const TYPE_DECORATE = 'decorate';
     const TYPE_SHELL_TRANSFORM = 'shellTransform';
 
-    /**
-     * @var string
-     */
-    protected $type;
+    private string $type;
 
-    /**
-     * @var Config
-     */
-    protected $config;
+    private Config $config;
 
-    /**
-     * Behavior constructor.
-     * @param string|null $type
-     */
     public function __construct(string $type = null)
     {
-        if ($type) {
+        if (null !== $type) {
             $this->setType($type);
         }
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getTypes(): array
     {
@@ -57,18 +47,11 @@ class Behavior
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     * @return Behavior
-     */
     public function setType(string $type): Behavior
     {
         if (!\in_array($type, static::getTypes())) {
@@ -78,18 +61,11 @@ class Behavior
         return $this;
     }
 
-    /**
-     * @return Config
-     */
-    public function getConfig()
+    public function getConfig(): Config
     {
         return $this->config;
     }
 
-    /**
-     * @param Config $config
-     * @return Behavior
-     */
     public function setConfig(Config $config): Behavior
     {
         $this->config = $config;

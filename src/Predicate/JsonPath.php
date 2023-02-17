@@ -14,22 +14,14 @@ class JsonPath
 {
     /**
      * The JSONPath selector
-     * @var string
      */
-    protected $selector;
+    private string $selector;
 
-    /**
-     * @return string
-     */
     public function getSelector(): string
     {
         return $this->selector;
     }
 
-    /**
-     * @param string $selector
-     * @return JsonPath
-     */
     public function setSelector(string $selector): self
     {
         $this->selector = $selector;

@@ -43,7 +43,7 @@ class FormatterTest extends TestCase
                 (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate())->setJs('js'))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues([['foo'], ['bar']]))
+                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues('shell string'))
             );
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
@@ -110,7 +110,7 @@ class FormatterTest extends TestCase
                 (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate())->setJs('js'))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues([['foo'], ['bar']]))
+                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues('shell string'))
             );
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);

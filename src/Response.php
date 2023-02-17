@@ -20,27 +20,23 @@ class Response
     /**
      * @var string
      */
-    protected $type;
+    private string $type;
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
-    protected $config = [];
+    private array $config = [];
 
     /**
      * @var string
      */
-    protected $injectJs;
+    private string $injectJs;
 
     /**
      * @var Behavior[]
      */
-    protected $behaviors = [];
+    private array $behaviors = [];
 
-    /**
-     * Response constructor.
-     * @param string|null $type
-     */
     public function __construct(string $type = null)
     {
         if ($type) {
@@ -49,25 +45,18 @@ class Response
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getTypes(): array
     {
         return [static::TYPE_IS, static::TYPE_PROXY, static::TYPE_INJECT];
     }
 
-    /**
-     * @return string
-     */
     public function getType(): string
     {
         return $this->type;
     }
 
-    /**
-     * @param string $type
-     * @return Response
-     */
     public function setType(string $type): Response
     {
         if (!\in_array($type, static::getTypes())) {
@@ -78,7 +67,7 @@ class Response
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function getConfig(): array
     {
@@ -86,8 +75,7 @@ class Response
     }
 
     /**
-     * @param array $config
-     * @return Response
+     * @param array<string, mixed> $config
      */
     public function setConfig(array $config): Response
     {
@@ -95,18 +83,11 @@ class Response
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getInjectJs(): string
     {
         return $this->injectJs;
     }
 
-    /**
-     * @param string $injectJs
-     * @return Response
-     */
     public function setInjectJs(string $injectJs): Response
     {
         $this->injectJs = $injectJs;
@@ -123,7 +104,6 @@ class Response
 
     /**
      * @param Behavior[] $behaviors
-     * @return Response
      */
     public function setBehaviors(array $behaviors): Response
     {
@@ -131,10 +111,6 @@ class Response
         return $this;
     }
 
-    /**
-     * @param Behavior $behavior
-     * @return Response
-     */
     public function addBehavior(Behavior $behavior): Response
     {
         $this->behaviors[] = $behavior;

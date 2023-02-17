@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 namespace Demyan112rv\MountebankPHP;
+
 use Demyan112rv\MountebankPHP\Predicate\JsonPath;
 use Demyan112rv\MountebankPHP\Predicate\XPath;
 
@@ -26,52 +27,38 @@ class Predicate
     const OPERATOR_AND = 'and';
     const OPERATOR_INJECT = 'inject';
 
-    /**
-     * @var string
-     */
-    protected $operator;
+    private string $operator;
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
-    protected $config = [];
+    private array $config = [];
 
-    /**
-     * @var string
-     */
-    protected $injectJs;
+    private string $injectJs;
 
     /**
      * Determines if the match is case sensitive or not.
      * This includes keys for objects such as query parameters.
-     * @var bool
      */
-    protected $caseSensitive = false;
+    private bool $caseSensitive = false;
 
     /**
      * Defines a regular expression that is stripped out of the request field before matching.
-     * @var string
      */
-    protected $except = '';
+    private string $except = '';
 
     /**
      * Defines an object containing a selector string and, optionally, an ns object field that defines a namespace map.
      * The predicate's scope is limited to the selected value in the request field.
-     * @var XPath|null
      */
-    protected $xPath;
+    private ?XPath $xPath = null;
 
     /**
      * Defines an object containing a selector string.
      * The predicate's scope is limited to the selected value in the request field.
-     * @var JsonPath|null
      */
-    protected $jsonPath;
+    private ?JsonPath $jsonPath = null;
 
-    /**
-     * Predicate constructor.
-     * @param string|null $operator
-     */
     public function __construct(string $operator = null)
     {
         if ($operator) {
@@ -80,7 +67,7 @@ class Predicate
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public static function getOperators(): array
     {
@@ -99,18 +86,11 @@ class Predicate
         ];
     }
 
-    /**
-     * @return string
-     */
     public function getOperator(): string
     {
         return $this->operator;
     }
 
-    /**
-     * @param string $operator
-     * @return Predicate
-     */
     public function setOperator(string $operator): self
     {
         if (!\in_array($operator, static::getOperators())) {
@@ -121,7 +101,7 @@ class Predicate
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function getConfig(): array
     {
@@ -129,8 +109,7 @@ class Predicate
     }
 
     /**
-     * @param array $config
-     * @return Predicate
+     * @param array<string, mixed> $config
      */
     public function setConfig(array $config): self
     {
@@ -138,90 +117,55 @@ class Predicate
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getInjectJs(): string
     {
         return $this->injectJs;
     }
 
-    /**
-     * @param string $injectJs
-     * @return Predicate
-     */
     public function setInjectJs(string $injectJs): self
     {
         $this->injectJs = $injectJs;
         return $this;
     }
 
-    /**
-     * @return bool
-     */
     public function isCaseSensitive(): bool
     {
         return $this->caseSensitive;
     }
 
-    /**
-     * @param bool $caseSensitive
-     * @return Predicate
-     */
     public function setCaseSensitive(bool $caseSensitive): self
     {
         $this->caseSensitive = $caseSensitive;
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getExcept(): string
     {
         return $this->except;
     }
 
-    /**
-     * @param string $except
-     * @return Predicate
-     */
     public function setExcept(string $except): self
     {
         $this->except = $except;
         return $this;
     }
 
-    /**
-     * @return XPath
-     */
     public function getXPath(): ?XPath
     {
         return $this->xPath;
     }
 
-    /**
-     * @param XPath $xPath
-     * @return Predicate
-     */
     public function setXPath(XPath $xPath): self
     {
         $this->xPath = $xPath;
         return $this;
     }
 
-    /**
-     * @return JsonPath
-     */
     public function getJsonPath(): ?JsonPath
     {
         return $this->jsonPath;
     }
 
-    /**
-     * @param JsonPath $jsonPath
-     * @return Predicate
-     */
     public function setJsonPath(JsonPath $jsonPath): self
     {
         $this->jsonPath = $jsonPath;
