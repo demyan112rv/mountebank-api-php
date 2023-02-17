@@ -16,14 +16,14 @@ class XPath
      * The XPath selector
      * @var string
      */
-    protected string $selector;
+    private string $selector;
 
     /**
      * The XPath namespace map, aliasing a prefix to a URL,
      * which allows you to use the prefix in the selector.
      * @var array<string, string>
      */
-    protected array $ns;
+    private array $ns;
 
     public function getSelector(): string
     {

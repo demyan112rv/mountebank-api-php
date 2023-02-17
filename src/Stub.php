@@ -39,9 +39,6 @@ class Stub
         return $this;
     }
 
-    /**
-     * @param Response $response
-     */
     public function addResponse(Response $response): self
     {
         $this->responses[] = $response;
@@ -65,9 +62,6 @@ class Stub
         return $this;
     }
 
-    /**
-     * @param Predicate $predicate
-     */
     public function addPredicate(Predicate $predicate): self
     {
         $this->predicates[] = $predicate;
