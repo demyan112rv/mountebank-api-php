@@ -64,7 +64,7 @@ class FormatterTest extends TestCase
             ->setKey('key')
             ->setCert('cert')
             ->setMutualAuth(true)
-            ->setDefaultResponse(new Response())
+            ->setDefaultResponse(new Response(Response::TYPE_IS))
             ->setAllowCORS(true)
             ->setRecordRequests(true);
 
@@ -128,7 +128,7 @@ class FormatterTest extends TestCase
             ->setPort(1234)
             ->setProtocol(Imposter::PROTOCOL_HTTP)
             ->addStub($stub)
-            ->setDefaultResponse(new Response())
+            ->setDefaultResponse(new Response(Response::TYPE_IS))
             ->setAllowCORS(true)
             ->setRecordRequests(true);
 

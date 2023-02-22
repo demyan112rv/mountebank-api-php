@@ -22,7 +22,7 @@ class ImposterTest extends TestCase
             ->setKey('key')
             ->setCert('cert')
             ->setMutualAuth(true)
-            ->setDefaultResponse(new Response())
+            ->setDefaultResponse(new Response(Response::TYPE_IS))
             ->setAllowCORS(true)
             ->setRecordRequests(true);
 

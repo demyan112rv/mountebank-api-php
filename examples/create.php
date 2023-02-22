@@ -29,8 +29,7 @@ $imposter->setName('Test imposter')
     ->setProtocol(Imposter::PROTOCOL_HTTP)
     ->addStub($stub);
 
-$mb = new Mountebank(new \GuzzleHttp\Client());
-$mb->setHost('http://localhost')->setPort(2525);
+$mb = new Mountebank(new \GuzzleHttp\Client(), 'http://localhost', 2525);
 
 $response = $mb->removeImposters();
 $response = $mb->addImposter($imposter);

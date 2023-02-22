@@ -21,13 +21,18 @@ class Mountebank
 
     private ClientInterface $client;
 
-    private string $host = 'http://localhost';
+    private string $host;
 
-    private int $port = 2525;
+    private int $port;
 
-    public function __construct(ClientInterface $client)
-    {
+    public function __construct(
+        ClientInterface $client,
+        string $host = 'http://localhost',
+        int $port = 2525
+    ) {
         $this->client = $client;
+        $this->host = $host;
+        $this->port = $port;
     }
 
     public function getHost(): string
@@ -35,6 +40,9 @@ class Mountebank
         return $this->host;
     }
 
+    /**
+     * @deprecated
+     */
     public function setHost(string $host): self
     {
         $this->host = $host;
@@ -46,6 +54,9 @@ class Mountebank
         return $this->port;
     }
 
+    /**
+     * @deprecated
+     */
     public function setPort(int $port): self
     {
         $this->port = $port;

@@ -59,11 +59,9 @@ class Predicate
      */
     private ?JsonPath $jsonPath = null;
 
-    public function __construct(string $operator = null)
+    public function __construct(string $operator)
     {
-        if ($operator) {
-            $this->setOperator($operator);
-        }
+        $this->setOperator($operator);
     }
 
     /**

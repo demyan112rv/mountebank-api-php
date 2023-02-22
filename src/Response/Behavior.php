@@ -25,11 +25,9 @@ class Behavior
 
     private Config $config;
 
-    public function __construct(string $type = null)
+    public function __construct(string $type)
     {
-        if (null !== $type) {
-            $this->setType($type);
-        }
+        $this->setType($type);
     }
 
     /**

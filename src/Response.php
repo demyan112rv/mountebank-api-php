@@ -37,11 +37,9 @@ class Response
      */
     private array $behaviors = [];
 
-    public function __construct(string $type = null)
+    public function __construct(string $type)
     {
-        if ($type) {
-            $this->setType($type);
-        }
+        $this->setType($type);
     }
 
     /**
