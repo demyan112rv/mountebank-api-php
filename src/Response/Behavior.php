@@ -55,7 +55,10 @@ class Behavior
      */
     public function setType(string $type): Behavior
     {
-
+        if (!\in_array($type, static::getTypes())) {
+            throw new \InvalidArgumentException();
+        }
+        $this->type = $type;
         return $this;
     }
 
