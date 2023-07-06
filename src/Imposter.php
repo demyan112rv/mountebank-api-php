@@ -11,11 +11,11 @@ namespace Demyan112rv\MountebankPHP;
  */
 class Imposter
 {
-    const PROTOCOL_HTTP = 'http';
-    const PROTOCOL_HTTPS = 'https';
-    const PROTOCOL_TCP = 'tcp';
-    const PROTOCOL_SMTP = 'smtp';
-    const PROTOCOL_GRAPHQL = 'graphql';
+    public const PROTOCOL_HTTP = 'http';
+    public const PROTOCOL_HTTPS = 'https';
+    public const PROTOCOL_TCP = 'tcp';
+    public const PROTOCOL_SMTP = 'smtp';
+    public const PROTOCOL_GRAPHQL = 'graphql';
 
     /**
      * The port to run the imposter on.
@@ -77,6 +77,14 @@ class Imposter
      */
     private ?string $schema = null;
 
+    public function __construct(string $name, int $port, string $protocol)
+    {
+        $this->name = $name;
+        $this->port = $port;
+        $this->setProtocol($protocol);
+    }
+
+
     /**
      * @return string[]
      */
@@ -96,6 +104,9 @@ class Imposter
         return $this->port;
     }
 
+    /**
+     * @deprecated
+     */
     public function setPort(int $port): Imposter
     {
         $this->port = $port;
@@ -107,6 +118,9 @@ class Imposter
         return $this->protocol;
     }
 
+    /**
+     * @deprecated
+     */
     public function setProtocol(string $protocol): Imposter
     {
         if (!\in_array($protocol, static::getProtocols())) {
@@ -121,6 +135,9 @@ class Imposter
         return $this->name;
     }
 
+    /**
+     * @deprecated
+     */
     public function setName(string $name): Imposter
     {
         $this->name = $name;

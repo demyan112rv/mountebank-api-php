@@ -23,10 +23,8 @@ $stub->addPredicate(
     ])
 );
 
-$imposter = new Imposter();
-$imposter->setName('Test imposter')
-    ->setPort(4444)
-    ->setProtocol(Imposter::PROTOCOL_HTTP)
+$imposter = new Imposter('Test imposter', 4444, Imposter::PROTOCOL_HTTP);
+$imposter
     ->addStub($stub);
 
 $mb = new Mountebank(new \GuzzleHttp\Client(), 'http://localhost', 2525);

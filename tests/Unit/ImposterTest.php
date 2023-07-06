@@ -13,11 +13,8 @@ class ImposterTest extends TestCase
 {
     public function testFill(): void
     {
-        $imposter = new Imposter();
-        $imposter->setName('Test imposter')
-            ->setPort(1234)
-            ->setProtocol(Imposter::PROTOCOL_HTTP)
-            ->setSchema('Test schema')
+        $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTP);
+        $imposter->setSchema('Test schema')
             ->setStubs([new Stub()])
             ->setKey('key')
             ->setCert('cert')
@@ -47,7 +44,6 @@ class ImposterTest extends TestCase
     public function testWrongType(): void
     {
         $this->expectException(\InvalidArgumentException::class);
-        $imposter = new Imposter();
-        $imposter->setProtocol('Wrong protocol');
+        new Imposter('Test imposter', 1234, 'Wrong protocol');
     }
 }

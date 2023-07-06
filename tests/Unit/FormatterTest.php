@@ -56,11 +56,8 @@ class FormatterTest extends TestCase
         $stub = new Stub();
         $stub->addResponse($response)->addPredicate($predicate);
 
-        $imposter = new Imposter();
-        $imposter->setName('Test imposter')
-            ->setPort(1234)
-            ->setProtocol(Imposter::PROTOCOL_HTTPS)
-            ->addStub($stub)
+        $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTPS);
+        $imposter->addStub($stub)
             ->setKey('key')
             ->setCert('cert')
             ->setMutualAuth(true)
@@ -123,11 +120,8 @@ class FormatterTest extends TestCase
         $stub = new Stub();
         $stub->addResponse($response)->addPredicate($predicate);
 
-        $imposter = new Imposter();
-        $imposter->setName('Test imposter')
-            ->setPort(1234)
-            ->setProtocol(Imposter::PROTOCOL_HTTP)
-            ->addStub($stub)
+        $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTP);
+        $imposter->addStub($stub)
             ->setDefaultResponse(new Response(Response::TYPE_IS))
             ->setAllowCORS(true)
             ->setRecordRequests(true);
@@ -146,11 +140,8 @@ class FormatterTest extends TestCase
 
     public function testSchemaAttached(): void
     {
-        $imposter = new Imposter();
-        $imposter->setName('Test imposter')
-            ->setPort(1234)
-            ->setProtocol(Imposter::PROTOCOL_HTTP)
-            ->setSchema('Test Schema');
+        $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTP);
+        $imposter->setSchema('Test Schema');
 
         $formatter = new Formatter($imposter);
         $array = $formatter->toArray();

@@ -14,12 +14,12 @@ use Demyan112rv\MountebankPHP\Response\Behavior\Config;
  */
 class Behavior
 {
-    const TYPE_WAIT = 'wait';
-    const TYPE_REPEAT = 'repeat';
-    const TYPE_COPY = 'copy';
-    const TYPE_LOOKUP = 'lookup';
-    const TYPE_DECORATE = 'decorate';
-    const TYPE_SHELL_TRANSFORM = 'shellTransform';
+    public const TYPE_WAIT = 'wait';
+    public const TYPE_REPEAT = 'repeat';
+    public const TYPE_COPY = 'copy';
+    public const TYPE_LOOKUP = 'lookup';
+    public const TYPE_DECORATE = 'decorate';
+    public const TYPE_SHELL_TRANSFORM = 'shellTransform';
 
     private string $type;
 
@@ -50,12 +50,12 @@ class Behavior
         return $this->type;
     }
 
+    /**
+     * @deprecated
+     */
     public function setType(string $type): Behavior
     {
-        if (!\in_array($type, static::getTypes())) {
-            throw new \InvalidArgumentException();
-        }
-        $this->type = $type;
+
         return $this;
     }
 

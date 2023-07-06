@@ -13,9 +13,9 @@ use Demyan112rv\MountebankPHP\Response\Behavior;
  */
 class Response
 {
-    const TYPE_IS = 'is';
-    const TYPE_PROXY = 'proxy';
-    const TYPE_INJECT = 'inject';
+    public const TYPE_IS = 'is';
+    public const TYPE_PROXY = 'proxy';
+    public const TYPE_INJECT = 'inject';
 
     /**
      * @var string

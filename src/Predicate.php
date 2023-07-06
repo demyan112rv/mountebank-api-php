@@ -15,17 +15,17 @@ use Demyan112rv\MountebankPHP\Predicate\XPath;
  */
 class Predicate
 {
-    const OPERATOR_EQUALS = 'equals';
-    const OPERATOR_DEEP_EQUALS = 'deepEquals';
-    const OPERATOR_CONTAINS = 'contains';
-    const OPERATOR_START_WITH = 'startsWith';
-    const OPERATOR_END_WITH = 'endsWith';
-    const OPERATOR_MATCHES = 'matches';
-    const OPERATOR_EXISTS = 'exists';
-    const OPERATOR_NOT = 'not';
-    const OPERATOR_OR = 'or';
-    const OPERATOR_AND = 'and';
-    const OPERATOR_INJECT = 'inject';
+    public const OPERATOR_EQUALS = 'equals';
+    public const OPERATOR_DEEP_EQUALS = 'deepEquals';
+    public const OPERATOR_CONTAINS = 'contains';
+    public const OPERATOR_START_WITH = 'startsWith';
+    public const OPERATOR_END_WITH = 'endsWith';
+    public const OPERATOR_MATCHES = 'matches';
+    public const OPERATOR_EXISTS = 'exists';
+    public const OPERATOR_NOT = 'not';
+    public const OPERATOR_OR = 'or';
+    public const OPERATOR_AND = 'and';
+    public const OPERATOR_INJECT = 'inject';
 
     private string $operator;
 
@@ -89,6 +89,9 @@ class Predicate
         return $this->operator;
     }
 
+    /**
+     * @deprecated
+     */
     public function setOperator(string $operator): self
     {
         if (!\in_array($operator, static::getOperators())) {

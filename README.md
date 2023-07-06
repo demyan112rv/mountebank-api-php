@@ -44,8 +44,7 @@ $response->setConfig([
     'headers' => ['Content-Type' => 'application/json'],
     'body' => ['foo' => 'bar']
 ])->addBehavior(
-    (new Behavior())
-        ->setType(Behavior::TYPE_WAIT)
+    (new Behavior(Behavior::TYPE_WAIT))
         ->setConfig((new Behavior\Config\Wait())->setValue(500))
 );
 ```
@@ -78,15 +77,11 @@ $stub->addResponse($response)->addPredicate($predicate);
 use Demyan112rv\MountebankPHP\Imposter;
 use Demyan112rv\MountebankPHP\Mountebank;
 
-$imposter = new Imposter();
-$imposter->setName('Test imposter')
-    ->setPort(1234)
-    ->setProtocol(Imposter::PROTOCOL_HTTP)
-    ->addStub($stub);
+$imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTP);
+$imposter->addStub($stub);
 
 // Mountbank config client
-$mb = new Mountebank(new \GuzzleHttp\Client());
-$mb->setHost('http://localhost')->setPort(2525);
+$mb = new Mountebank(new \GuzzleHttp\Client(), 'http://localhost', 2525);
 
 // Add new imposter
 $response = $mb->addImposter($imposter);

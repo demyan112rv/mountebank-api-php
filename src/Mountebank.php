@@ -15,9 +15,9 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Mountebank
 {
-    const URI_IMPOSTERS = 'imposters';
-    const URI_CONFIG = 'config';
-    const URI_LOGS = 'logs';
+    public const URI_IMPOSTERS = 'imposters';
+    public const URI_CONFIG = 'config';
+    public const URI_LOGS = 'logs';
 
     private ClientInterface $client;
 
