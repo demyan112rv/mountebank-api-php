@@ -24,11 +24,19 @@ class Decorate implements Config
      */
     private string $js;
 
+    public function __construct(string $js)
+    {
+        $this->js = $js;
+    }
+
     public function getJs(): string
     {
         return $this->js;
     }
 
+    /**
+     * @deprecated now used __construct()
+     */
     public function setJs(string $js): Decorate
     {
         $this->js = $js;

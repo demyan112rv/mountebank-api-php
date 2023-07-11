@@ -12,8 +12,7 @@ class JsonPathTest extends TestCase
 
     public function testFill(): void
     {
-        $jsonPath = new JsonPath();
-        $jsonPath->setSelector('selector');
+        $jsonPath = new JsonPath('selector');
         $this->assertNotEmpty($jsonPath->getSelector());
         $this->assertEquals('selector', $jsonPath->getSelector());
     }

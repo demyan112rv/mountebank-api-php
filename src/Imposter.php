@@ -105,7 +105,7 @@ class Imposter
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setPort(int $port): Imposter
     {
@@ -119,7 +119,7 @@ class Imposter
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setProtocol(string $protocol): Imposter
     {
@@ -136,7 +136,7 @@ class Imposter
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setName(string $name): Imposter
     {

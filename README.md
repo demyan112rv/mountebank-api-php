@@ -59,7 +59,7 @@ use Demyan112rv\MountebankPHP\Predicate\JsonPath;
 $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
 $predicate->setConfig(['path' => '/test'])
     ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
-    ->setJsonPath((new JsonPath())->setSelector('selector'));
+    ->setJsonPath((new JsonPath('selector')));
 ```
 
 ### Stub for imposter

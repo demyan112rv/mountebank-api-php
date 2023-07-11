@@ -41,7 +41,7 @@ class Mountebank
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setHost(string $host): self
     {
@@ -55,7 +55,7 @@ class Mountebank
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setPort(int $port): self
     {

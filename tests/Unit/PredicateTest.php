@@ -19,7 +19,7 @@ class PredicateTest extends TestCase
             ->setCaseSensitive(true)
             ->setExcept('expect')
             ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
-            ->setJsonPath((new JsonPath())->setSelector('selector'));
+            ->setJsonPath((new JsonPath('selector')));
 
         $this->assertNotEmpty($predicate->getOperator());
         $this->assertNotEmpty($predicate->getConfig());

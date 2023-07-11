@@ -55,6 +55,9 @@ class Response
         return $this->type;
     }
 
+    /**
+     * @deprecated now used __construct()
+     */
     public function setType(string $type): Response
     {
         if (!\in_array($type, static::getTypes())) {

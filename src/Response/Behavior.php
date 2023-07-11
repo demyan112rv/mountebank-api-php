@@ -51,7 +51,7 @@ class Behavior
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setType(string $type): Behavior
     {

@@ -23,11 +23,19 @@ class ShellTransform implements Config
      */
     private string $value;
 
+    public function __construct(string $value)
+    {
+        $this->value = $value;
+    }
+
     public function getValue(): string
     {
         return $this->value;
     }
 
+    /**
+     * @deprecated now used __construct()
+     */
     public function setValues(string $value): ShellTransform
     {
         $this->value = $value;

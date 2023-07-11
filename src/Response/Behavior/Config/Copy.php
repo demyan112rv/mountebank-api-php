@@ -23,6 +23,14 @@ class Copy implements Config
     private array $values;
 
     /**
+     * @param array<string, mixed> $values
+     */
+    public function __construct(array $values)
+    {
+        $this->values = $values;
+    }
+
+    /**
      * @return array<string, mixed>
      */
     public function getValues(): array
@@ -31,6 +39,7 @@ class Copy implements Config
     }
 
     /**
+     * @deprecated now used __construct()
      * @param array<string, mixed> $values
      */
     public function setValues(array $values): Copy

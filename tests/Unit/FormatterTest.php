@@ -31,19 +31,19 @@ class FormatterTest extends TestCase
                 (new Behavior(Behavior::TYPE_WAIT))->setConfig((new Behavior\Config\Wait())->setJs('js'))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_REPEAT))->setConfig((new Behavior\Config\Repeat())->setValue(3))
+                (new Behavior(Behavior::TYPE_REPEAT))->setConfig((new Behavior\Config\Repeat(3)))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_COPY))->setConfig((new Behavior\Config\Copy())->setValues([['foo'], ['bar']]))
+                (new Behavior(Behavior::TYPE_COPY))->setConfig((new Behavior\Config\Copy([['foo'], ['bar']])))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_LOOKUP))->setConfig((new Behavior\Config\Lookup())->setValues([['foo'], ['bar']]))
+                (new Behavior(Behavior::TYPE_LOOKUP))->setConfig((new Behavior\Config\Lookup([['foo'], ['bar']])))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate())->setJs('js'))
+                (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate('js')))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues('shell string'))
+                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform('shell string')))
             );
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
@@ -51,7 +51,7 @@ class FormatterTest extends TestCase
             ->setCaseSensitive(true)
             ->setExcept('expect')
             ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
-            ->setJsonPath((new JsonPath())->setSelector('selector'));
+            ->setJsonPath((new JsonPath('selector')));
 
         $stub = new Stub();
         $stub->addResponse($response)->addPredicate($predicate);
@@ -95,19 +95,19 @@ class FormatterTest extends TestCase
                 (new Behavior(Behavior::TYPE_WAIT))->setConfig((new Behavior\Config\Wait())->setJs('js'))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_REPEAT))->setConfig((new Behavior\Config\Repeat())->setValue(3))
+                (new Behavior(Behavior::TYPE_REPEAT))->setConfig((new Behavior\Config\Repeat(3)))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_COPY))->setConfig((new Behavior\Config\Copy())->setValues([['foo'], ['bar']]))
+                (new Behavior(Behavior::TYPE_COPY))->setConfig((new Behavior\Config\Copy([['foo'], ['bar']])))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_LOOKUP))->setConfig((new Behavior\Config\Lookup())->setValues([['foo'], ['bar']]))
+                (new Behavior(Behavior::TYPE_LOOKUP))->setConfig((new Behavior\Config\Lookup([['foo'], ['bar']])))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate())->setJs('js'))
+                (new Behavior(Behavior::TYPE_DECORATE))->setConfig((new Behavior\Config\Decorate('js')))
             )
             ->addBehavior(
-                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform())->setValues('shell string'))
+                (new Behavior(Behavior::TYPE_SHELL_TRANSFORM))->setConfig((new Behavior\Config\ShellTransform('shell string')))
             );
 
         $predicate = new Predicate(Predicate::OPERATOR_EQUALS);
@@ -115,7 +115,7 @@ class FormatterTest extends TestCase
             ->setCaseSensitive(true)
             ->setExcept('expect')
             ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
-            ->setJsonPath((new JsonPath())->setSelector('selector'));
+            ->setJsonPath((new JsonPath('selector')));
 
         $stub = new Stub();
         $stub->addResponse($response)->addPredicate($predicate);

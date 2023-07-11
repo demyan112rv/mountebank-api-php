@@ -90,7 +90,7 @@ class Predicate
     }
 
     /**
-     * @deprecated
+     * @deprecated now used __construct()
      */
     public function setOperator(string $operator): self
     {

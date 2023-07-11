@@ -19,11 +19,19 @@ class Repeat implements Config
      */
     private int $value;
 
+    public function __construct(int $value)
+    {
+        $this->value = $value;
+    }
+
     public function getValue(): int
     {
         return $this->value;
     }
 
+    /**
+     * @deprecated now used __construct()
+     */
     public function setValue(int $value): Repeat
     {
         $this->value = $value;

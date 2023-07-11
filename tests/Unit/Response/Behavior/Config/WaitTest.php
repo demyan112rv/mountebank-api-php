@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Demyan112rv\MountebankPHP\Tests\Unit\Response\Behavior;
+namespace Demyan112rv\MountebankPHP\Tests\Unit\Response\Behavior\Config;
 
 use Demyan112rv\MountebankPHP\Response\Behavior\Config\Wait;
 use PHPUnit\Framework\TestCase;
