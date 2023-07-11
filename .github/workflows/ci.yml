@@ -16,6 +16,7 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           php_version: "7.4"
+          version: "8"
 
   test-php80:
     runs-on: ubuntu-latest
@@ -30,6 +31,7 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           php_version: "8.0"
+          version: "9"
 
   test-php81:
     runs-on: ubuntu-latest
@@ -44,6 +46,7 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           php_version: "8.1"
+          version: "10"
 
   test-php82:
     runs-on: ubuntu-latest
@@ -58,3 +61,4 @@ jobs:
         uses: php-actions/phpunit@v3
         with:
           php_version: "8.2"
+          version: "10"
