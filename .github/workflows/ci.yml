@@ -1,0 +1,60 @@
+name: CI
+
+on: [push]
+
+jobs:
+  test-php74:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "7.4"
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          php_version: "7.4"
+
+  test-php80:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.0"
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          php_version: "8.0"
+
+  test-php81:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.1"
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          php_version: "8.1"
+
+  test-php82:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.2"
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          php_version: "8.2"
