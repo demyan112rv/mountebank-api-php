@@ -12,8 +12,8 @@ class XPathTest extends TestCase
 
     public function testFill(): void
     {
-        $xPath = new XPath();
-        $xPath->setSelector('selector')->setNs(['foo' => 'bar']);
+        $xPath = new XPath('selector');
+        $xPath->setNs(['foo' => 'bar']);
         $this->assertNotEmpty($xPath->getNs());
         $this->assertNotEmpty($xPath->getSelector());
         $this->assertEquals('selector', $xPath->getSelector());

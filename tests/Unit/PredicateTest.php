@@ -18,7 +18,7 @@ class PredicateTest extends TestCase
             ->setInjectJs('Inject js string')
             ->setCaseSensitive(true)
             ->setExcept('expect')
-            ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
+            ->setXPath((new XPath('selector'))->setNs(['foo' => 'bar']))
             ->setJsonPath((new JsonPath('selector')));
 
         $this->assertNotEmpty($predicate->getOperator());

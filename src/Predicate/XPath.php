@@ -23,13 +23,21 @@ class XPath
      * which allows you to use the prefix in the selector.
      * @var array<string, string>
      */
-    private array $ns;
+    private array $ns = [];
+
+    public function __construct(string $selector)
+    {
+        $this->selector = $selector;
+    }
 
     public function getSelector(): string
     {
         return $this->selector;
     }
 
+    /**
+     * @deprecated now used __construct()
+     */
     public function setSelector(string $selector): self
     {
         $this->selector = $selector;

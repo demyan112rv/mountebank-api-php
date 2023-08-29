@@ -50,7 +50,7 @@ class FormatterTest extends TestCase
         $predicate->setConfig(['path' => '/test'])
             ->setCaseSensitive(true)
             ->setExcept('expect')
-            ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
+            ->setXPath((new XPath('selector'))->setNs(['foo' => 'bar']))
             ->setJsonPath((new JsonPath('selector')));
 
         $stub = new Stub();
@@ -114,7 +114,7 @@ class FormatterTest extends TestCase
         $predicate->setConfig(['path' => '/test'])
             ->setCaseSensitive(true)
             ->setExcept('expect')
-            ->setXPath((new XPath())->setSelector('selector')->setNs(['foo' => 'bar']))
+            ->setXPath((new XPath('selector'))->setNs(['foo' => 'bar']))
             ->setJsonPath((new JsonPath('selector')));
 
         $stub = new Stub();
