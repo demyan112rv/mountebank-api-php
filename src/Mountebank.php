@@ -16,6 +16,7 @@ use Psr\Http\Message\ResponseInterface;
 class Mountebank
 {
     public const URI_IMPOSTERS = 'imposters';
+    public const URI_STUBS = 'stubs';
     public const URI_CONFIG = 'config';
     public const URI_LOGS = 'logs';
 
@@ -68,6 +69,11 @@ class Mountebank
         return $this->host . ':' . $this->port . '/' . static::URI_IMPOSTERS;
     }
 
+    public function getStubsUrl(): string
+    {
+        return $this->getImpostersUrl() . '/' . $this->port . '/' . static::URI_STUBS;
+    }
+
     public function getLogsUrl(): string
     {
         return $this->host . ':' . $this->port . '/' . static::URI_LOGS;
@@ -99,7 +105,7 @@ class Mountebank
      */
     public function addImposter(Imposter $imposter): ResponseInterface
     {
-        $formattedImposter = (new Formatter($imposter))->toArray();
+        $formattedImposter = (new Formatter())->imposterToArray($imposter);
         return $this->client->request('POST', $this->getImpostersUrl(), [
             RequestOptions::BODY => \json_encode($formattedImposter),
             RequestOptions::HEADERS => [
@@ -123,6 +129,52 @@ class Mountebank
     public function removeImposters(): ResponseInterface
     {
         return $this->client->request('DELETE', $this->getImpostersUrl());
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function addStub(Stub $stub, int $index): ResponseInterface
+    {
+        $formattedStub = (new Formatter())->stubToArray($stub);
+        return $this->client->request('POST', $this->getStubsUrl(), [
+            RequestOptions::BODY => \json_encode([
+                'index' => $index,
+                'stub' => $formattedStub,
+            ]),
+            RequestOptions::HEADERS => [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json'
+            ],
+        ]);
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function updateStub(Stub $stub, int $index): ResponseInterface
+    {
+        $formattedStub = (new Formatter())->stubToArray($stub);
+        return $this->client->request('PUT', $this->getStubsUrl() . '/' . $index, [
+            RequestOptions::BODY => \json_encode($formattedStub),
+            RequestOptions::HEADERS => [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json'
+            ],
+        ]);
+    }
+
+    /**
+     * @codeCoverageIgnore
+     */
+    public function deleteStub(int $index): ResponseInterface
+    {
+        return $this->client->request('DELETE', $this->getStubsUrl() . '/' . $index, [
+            RequestOptions::HEADERS => [
+                'Content-Type' => 'application/json',
+                'Accept' => 'application/json'
+            ],
+        ]);
     }
 
     /**

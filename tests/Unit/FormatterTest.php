@@ -65,8 +65,8 @@ class FormatterTest extends TestCase
             ->setAllowCORS(true)
             ->setRecordRequests(true);
 
-        $formatter = new Formatter($imposter);
-        $array = $formatter->toArray();
+        $formatter = new Formatter();
+        $array = $formatter->imposterToArray($imposter);
         $this->assertNotEmpty($array);
         $this->assertArrayHasKey('port', $array);
         $this->assertArrayHasKey('protocol', $array);
@@ -126,8 +126,8 @@ class FormatterTest extends TestCase
             ->setAllowCORS(true)
             ->setRecordRequests(true);
 
-        $formatter = new Formatter($imposter);
-        $array = $formatter->toArray();
+        $formatter = new Formatter();
+        $array = $formatter->imposterToArray($imposter);
         $this->assertNotEmpty($array);
         $this->assertArrayHasKey('port', $array);
         $this->assertArrayHasKey('protocol', $array);
@@ -143,8 +143,8 @@ class FormatterTest extends TestCase
         $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTP);
         $imposter->setSchema('Test Schema');
 
-        $formatter = new Formatter($imposter);
-        $array = $formatter->toArray();
+        $formatter = new Formatter();
+        $array = $formatter->imposterToArray($imposter);
 
         $this->assertArrayHasKey('schema', $array);
     }

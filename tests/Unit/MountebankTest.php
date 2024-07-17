@@ -26,5 +26,6 @@ class MountebankTest extends TestCase
         $this->assertEquals('http://test.com:1234/' . Mountebank::URI_CONFIG, $mb->getConfigUrl());
         $this->assertEquals('http://test.com:1234/' . Mountebank::URI_LOGS, $mb->getLogsUrl());
         $this->assertEquals('http://test.com:1234/' . Mountebank::URI_IMPOSTERS, $mb->getImpostersUrl());
+        $this->assertEquals('http://test.com:1234/' . Mountebank::URI_IMPOSTERS . '/1234/' . Mountebank::URI_STUBS, $mb->getStubsUrl());
     }
 }

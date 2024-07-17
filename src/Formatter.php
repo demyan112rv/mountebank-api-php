@@ -13,44 +13,37 @@ use Demyan112rv\MountebankPHP\Response\Behavior;
  */
 class Formatter
 {
-    private Imposter $imposter;
-
-    public function __construct(Imposter $imposter)
-    {
-        $this->imposter = $imposter;
-    }
-
     /**
      * @return array<string, mixed>
      */
-    public function toArray(): array
+    public function imposterToArray(Imposter $imposter): array
     {
         $stubs = [];
-        foreach ($this->imposter->getStubs() as $s => $stub) {
+        foreach ($imposter->getStubs() as $s => $stub) {
             $stubs[$s] = $this->stubToArray($stub);
         }
 
         $array = [
-            'port' => $this->imposter->getPort(),
-            'protocol' => $this->imposter->getProtocol(),
-            'name' => $this->imposter->getName(),
+            'port' => $imposter->getPort(),
+            'protocol' => $imposter->getProtocol(),
+            'name' => $imposter->getName(),
             'stubs' => $stubs,
-            'allowCORS' => $this->imposter->isAllowCORS(),
-            'recordRequests' => $this->imposter->isRecordRequests(),
+            'allowCORS' => $imposter->isAllowCORS(),
+            'recordRequests' => $imposter->isRecordRequests(),
         ];
 
-        if ($this->imposter->getProtocol() === Imposter::PROTOCOL_HTTPS) {
-            $array['key'] = $this->imposter->getKey();
-            $array['cert'] = $this->imposter->getCert();
-            $array['mutualAuth'] = $this->imposter->isMutualAuth();
+        if ($imposter->getProtocol() === Imposter::PROTOCOL_HTTPS) {
+            $array['key'] = $imposter->getKey();
+            $array['cert'] = $imposter->getCert();
+            $array['mutualAuth'] = $imposter->isMutualAuth();
         }
 
-        if ($this->imposter->getDefaultResponse() !== null) {
-            $array['defaultResponse'] = $this->imposter->getDefaultResponse()->getConfig();
+        if ($imposter->getDefaultResponse() !== null) {
+            $array['defaultResponse'] = $imposter->getDefaultResponse()->getConfig();
         }
 
-        if ($this->imposter->getSchema() !== null) {
-            $array['schema'] = $this->imposter->getSchema();
+        if ($imposter->getSchema() !== null) {
+            $array['schema'] = $imposter->getSchema();
         }
 
         return $array;
@@ -59,7 +52,7 @@ class Formatter
     /**
      * @return array<string, mixed>
      */
-    private function stubToArray(Stub $stub): array
+    public function stubToArray(Stub $stub): array
     {
         $array = [];
         $responses = [];
