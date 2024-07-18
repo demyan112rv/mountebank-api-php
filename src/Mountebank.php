@@ -69,9 +69,9 @@ class Mountebank
         return $this->host . ':' . $this->port . '/' . static::URI_IMPOSTERS;
     }
 
-    public function getStubsUrl(): string
+    public function getStubsUrl(int $port): string
     {
-        return $this->getImpostersUrl() . '/' . $this->port . '/' . static::URI_STUBS;
+        return $this->getImpostersUrl() . '/' . $port . '/' . static::URI_STUBS;
     }
 
     public function getLogsUrl(): string
@@ -134,10 +134,10 @@ class Mountebank
     /**
      * @codeCoverageIgnore
      */
-    public function addStub(Stub $stub, int $index): ResponseInterface
+    public function addStub(Stub $stub, int $port, int $index): ResponseInterface
     {
         $formattedStub = (new Formatter())->stubToArray($stub);
-        return $this->client->request('POST', $this->getStubsUrl(), [
+        return $this->client->request('POST', $this->getStubsUrl($port), [
             RequestOptions::BODY => \json_encode([
                 'index' => $index,
                 'stub' => $formattedStub,
@@ -152,10 +152,10 @@ class Mountebank
     /**
      * @codeCoverageIgnore
      */
-    public function updateStub(Stub $stub, int $index): ResponseInterface
+    public function updateStub(Stub $stub, int $port, int $index): ResponseInterface
     {
         $formattedStub = (new Formatter())->stubToArray($stub);
-        return $this->client->request('PUT', $this->getStubsUrl() . '/' . $index, [
+        return $this->client->request('PUT', $this->getStubsUrl($port) . '/' . $index, [
             RequestOptions::BODY => \json_encode($formattedStub),
             RequestOptions::HEADERS => [
                 'Content-Type' => 'application/json',
@@ -167,9 +167,9 @@ class Mountebank
     /**
      * @codeCoverageIgnore
      */
-    public function deleteStub(int $index): ResponseInterface
+    public function deleteStub(int $port, int $index): ResponseInterface
     {
-        return $this->client->request('DELETE', $this->getStubsUrl() . '/' . $index, [
+        return $this->client->request('DELETE', $this->getStubsUrl($port) . '/' . $index, [
             RequestOptions::HEADERS => [
                 'Content-Type' => 'application/json',
                 'Accept' => 'application/json'
