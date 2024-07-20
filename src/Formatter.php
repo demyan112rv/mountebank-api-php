@@ -94,16 +94,38 @@ class Formatter
     /**
      * @return array<string, mixed>
      */
-    private function predicateToArray(Predicate $predicate): array
+    private function predicateToArray(Predicate $predicate, bool $withAdditionalFields = true): array
     {
         $operator = $predicate->getOperator();
-        $value = $operator === Predicate::OPERATOR_INJECT ? $predicate->getInjectJs() : $predicate->getConfig();
+
+        switch ($operator) {
+            case Predicate::OPERATOR_INJECT:
+                $value = $predicate->getInjectJs();
+                break;
+            case Predicate::OPERATOR_AND:
+            case Predicate::OPERATOR_OR:
+            case Predicate::OPERATOR_NOT:
+                $value = [];
+                foreach ($predicate->getConfig() as $predicateOperator => $predicateConfig) {
+                    if ($predicateConfig instanceof Predicate) {
+                        $value = array_merge($value, $this->predicateToArray($predicateConfig, false));
+                    } else {
+                        $value[$predicateOperator] = $predicateConfig;
+                    }
+                }
+                break;
+            default:
+                $value = $predicate->getConfig();
+        }
 
         $array = [
             $operator => $value,
-            'caseSensitive' => $predicate->isCaseSensitive(),
-            'except' => $predicate->getExcept(),
         ];
+
+        if (true === $withAdditionalFields) {
+            $array['caseSensitive'] = $predicate->isCaseSensitive();
+            $array['except'] = $predicate->getExcept();
+        }
 
         if ($predicate->getXPath() !== null) {
             $array['xpath'] = [

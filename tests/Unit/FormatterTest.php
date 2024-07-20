@@ -148,4 +148,80 @@ class FormatterTest extends TestCase
 
         $this->assertArrayHasKey('schema', $array);
     }
+
+    public function testPredicateWithPredicates(): void
+    {
+        $predicate1 = new Predicate(Predicate::OPERATOR_EQUALS);
+        $predicate1->setConfig(['path' => '/test1']);
+
+        $predicate2 = new Predicate(Predicate::OPERATOR_START_WITH);
+        $predicate2->setConfig(['path' => '/test2']);
+
+        $predicate = new Predicate(Predicate::OPERATOR_AND);
+        $predicate->setConfig([
+            $predicate1->getOperator() => $predicate1,
+            $predicate2->getOperator() => $predicate2,
+        ]);
+
+        $stub = new Stub();
+        $stub->addPredicate($predicate);
+
+        $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTPS);
+        $imposter->addStub($stub);
+
+        $formatter = new Formatter();
+        $array = $formatter->imposterToArray($imposter);
+        $this->assertNotEmpty($array);
+        $this->assertArrayHasKey('stubs', $array);
+        $this->assertArrayHasKey('predicates', $array['stubs'][0]);
+        $this->assertSame([
+            [
+                'and' => [
+                    'equals' => [
+                        'path' => '/test1',
+                    ],
+                    'startsWith' => [
+                        'path' => '/test2',
+                    ],
+                ],
+                'caseSensitive' => false,
+                'except' => '',
+            ],
+        ], $array['stubs'][0]['predicates']);
+    }
+
+    public function testPredicateWithPredicatesAsArray(): void
+    {
+        $predicate = new Predicate(Predicate::OPERATOR_AND);
+        $predicate->setConfig([
+            Predicate::OPERATOR_EQUALS => ['path' => '/test1'],
+            Predicate::OPERATOR_START_WITH => ['path' => '/test2'],
+        ]);
+
+        $stub = new Stub();
+        $stub->addPredicate($predicate);
+
+        $imposter = new Imposter('Test imposter', 1234, Imposter::PROTOCOL_HTTPS);
+        $imposter->addStub($stub);
+
+        $formatter = new Formatter();
+        $array = $formatter->imposterToArray($imposter);
+        $this->assertNotEmpty($array);
+        $this->assertArrayHasKey('stubs', $array);
+        $this->assertArrayHasKey('predicates', $array['stubs'][0]);
+        $this->assertSame([
+            [
+                'and' => [
+                    'equals' => [
+                        'path' => '/test1',
+                    ],
+                    'startsWith' => [
+                        'path' => '/test2',
+                    ],
+                ],
+                'caseSensitive' => false,
+                'except' => '',
+            ],
+        ], $array['stubs'][0]['predicates']);
+    }
 }
