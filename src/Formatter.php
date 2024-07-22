@@ -106,11 +106,11 @@ class Formatter
             case Predicate::OPERATOR_OR:
             case Predicate::OPERATOR_NOT:
                 $value = [];
-                foreach ($predicate->getConfig() as $predicateOperator => $predicateConfig) {
+                foreach ($predicate->getConfig() as $predicateConfig) {
                     if ($predicateConfig instanceof Predicate) {
-                        $value = array_merge($value, $this->predicateToArray($predicateConfig, false));
+                        $value[] = $this->predicateToArray($predicateConfig, false);
                     } else {
-                        $value[$predicateOperator] = $predicateConfig;
+                        $value[] = $predicateConfig;
                     }
                 }
                 break;

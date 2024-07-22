@@ -157,10 +157,14 @@ class FormatterTest extends TestCase
         $predicate2 = new Predicate(Predicate::OPERATOR_START_WITH);
         $predicate2->setConfig(['path' => '/test2']);
 
+        $predicate3 = new Predicate(Predicate::OPERATOR_START_WITH);
+        $predicate3->setConfig(['path' => '/test3']);
+
         $predicate = new Predicate(Predicate::OPERATOR_AND);
         $predicate->setConfig([
-            $predicate1->getOperator() => $predicate1,
-            $predicate2->getOperator() => $predicate2,
+            $predicate1,
+            $predicate2,
+            $predicate3,
         ]);
 
         $stub = new Stub();
@@ -177,11 +181,20 @@ class FormatterTest extends TestCase
         $this->assertSame([
             [
                 'and' => [
-                    'equals' => [
-                        'path' => '/test1',
+                    [
+                        'equals' => [
+                            'path' => '/test1',
+                        ],
                     ],
-                    'startsWith' => [
-                        'path' => '/test2',
+                    [
+                        'startsWith' => [
+                            'path' => '/test2',
+                        ],
+                    ],
+                    [
+                        'startsWith' => [
+                            'path' => '/test3',
+                        ],
                     ],
                 ],
                 'caseSensitive' => false,
@@ -194,8 +207,9 @@ class FormatterTest extends TestCase
     {
         $predicate = new Predicate(Predicate::OPERATOR_AND);
         $predicate->setConfig([
-            Predicate::OPERATOR_EQUALS => ['path' => '/test1'],
-            Predicate::OPERATOR_START_WITH => ['path' => '/test2'],
+            [Predicate::OPERATOR_EQUALS => ['path' => '/test1']],
+            [Predicate::OPERATOR_START_WITH => ['path' => '/test2']],
+            [Predicate::OPERATOR_START_WITH => ['path' => '/test3']],
         ]);
 
         $stub = new Stub();
@@ -212,11 +226,20 @@ class FormatterTest extends TestCase
         $this->assertSame([
             [
                 'and' => [
-                    'equals' => [
-                        'path' => '/test1',
+                    [
+                        'equals' => [
+                            'path' => '/test1',
+                        ],
                     ],
-                    'startsWith' => [
-                        'path' => '/test2',
+                    [
+                        'startsWith' => [
+                            'path' => '/test2',
+                        ],
+                    ],
+                    [
+                        'startsWith' => [
+                            'path' => '/test3',
+                        ],
                     ],
                 ],
                 'caseSensitive' => false,

@@ -30,7 +30,7 @@ class Predicate
     private string $operator;
 
     /**
-     * @var array<string, mixed>
+     * @var array<string|int, mixed>
      */
     private array $config = [];
 
@@ -102,7 +102,7 @@ class Predicate
     }
 
     /**
-     * @return array<string, mixed>
+     * @return array<string|int, mixed>
      */
     public function getConfig(): array
     {
@@ -110,7 +110,7 @@ class Predicate
     }
 
     /**
-     * @param array<string, mixed> $config
+     * @param array<string|int, mixed> $config
      */
     public function setConfig(array $config): self
     {
