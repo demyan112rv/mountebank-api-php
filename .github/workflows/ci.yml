@@ -77,3 +77,18 @@ jobs:
         with:
           php_version: "8.3"
           version: "10"
+
+  test-php84:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install dependencies
+        uses: php-actions/composer@v6
+        with:
+          php_version: "8.4"
+      - name: PHPUnit Tests
+        uses: php-actions/phpunit@v3
+        with:
+          php_version: "8.4"
+          version: "10"
