@@ -13,7 +13,6 @@ class XPath
 {
     /**
      * The XPath selector
-     * @var string
      */
     private string $selector;
 

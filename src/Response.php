@@ -16,9 +16,6 @@ class Response
     public const TYPE_PROXY = 'proxy';
     public const TYPE_INJECT = 'inject';
 
-    /**
-     * @var string
-     */
     private string $type;
 
     /**
@@ -26,9 +23,6 @@ class Response
      */
     private array $config = [];
 
-    /**
-     * @var string
-     */
     private string $injectJs;
 
     /**

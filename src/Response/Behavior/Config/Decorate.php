@@ -19,7 +19,6 @@ class Decorate implements Config
      * If you return a new response, all fields that you want included must be set;
      * it will not be merged with the old response.
      * The --allowInjection command line flag must be set to support passing in a JavaScript function
-     * @var string
      */
     private string $js;
 
