@@ -20,7 +20,7 @@
     }
   },
   "require": {
-    "php": ">=7.4 <8.5",
+    "php": ">=8.0 <8.5",
     "ext-json": "*",
     "guzzlehttp/guzzle": ">=4.1.4"
   },
