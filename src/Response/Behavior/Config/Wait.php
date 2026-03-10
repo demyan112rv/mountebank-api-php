@@ -7,7 +7,6 @@ namespace Demyan112rv\MountebankPHP\Response\Behavior\Config;
 use Demyan112rv\MountebankPHP\Response\Behavior\Config;
 
 /**
- * Class Wait
  * @package Demyan112rv\MountebankPHP\Response\Behavior\Config
  * @see http://www.mbtest.org/docs/api/behaviors#behavior-wait
  * @since 0.8

@@ -9,7 +9,6 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 
 /**
- * Class Mountebank
  * @package Demyan112rv\MountebankPHP
  * @since 0.1
  */

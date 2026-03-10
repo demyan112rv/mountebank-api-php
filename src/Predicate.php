@@ -8,7 +8,6 @@ use Demyan112rv\MountebankPHP\Predicate\JsonPath;
 use Demyan112rv\MountebankPHP\Predicate\XPath;
 
 /**
- * Class Predicate
  * @package Demyan112rv\MountebankPHP
  * @see http://www.mbtest.org/docs/api/predicates
  * @since 0.1

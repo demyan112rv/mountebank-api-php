@@ -7,7 +7,6 @@ namespace Demyan112rv\MountebankPHP;
 use Demyan112rv\MountebankPHP\Response\Behavior;
 
 /**
- * Class Formatter
  * @package Demyan112rv\MountebankPHP
  * @since 0.1
  */

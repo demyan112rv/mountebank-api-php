@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Demyan112rv\MountebankPHP;
 
 /**
- * Class Imposter
  * @package Demyan112rv\MountebankPHP
  * @since 0.1
  */

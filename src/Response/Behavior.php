@@ -7,7 +7,6 @@ namespace Demyan112rv\MountebankPHP\Response;
 use Demyan112rv\MountebankPHP\Response\Behavior\Config;
 
 /**
- * Class Behavior
  * @package Demyan112rv\MountebankPHP\Response
  * @see http://www.mbtest.org/docs/api/behaviors
  * @since 0.5

@@ -7,7 +7,6 @@ namespace Demyan112rv\MountebankPHP\Response\Behavior\Config;
 use Demyan112rv\MountebankPHP\Response\Behavior\Config;
 
 /**
- * Class Copy
  * @package Demyan112rv\MountebankPHP\Response\Behavior\Config
  * @see http://www.mbtest.org/docs/api/behaviors#behavior-copy
  * @since 0.8

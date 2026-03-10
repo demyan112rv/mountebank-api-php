@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Demyan112rv\MountebankPHP\Predicate;
 
 /**
- * Class XPath
  * @package Demyan112rv\MountebankPHP\Predicate
  * @see http://www.mbtest.org/docs/api/jsonpath
  * @since 0.3
