@@ -8,7 +8,7 @@ use Demyan112rv\MountebankPHP\Response\Behavior\Config;
 
 /**
  * @package Demyan112rv\MountebankPHP\Response\Behavior\Config
- * @see http://www.mbtest.org/docs/api/behaviors#behavior-shellTransform
+ * @see https://www.mbtest.dev/docs/api/behaviors#behavior-shellTransform
  * @since 0.8
  */
 class ShellTransform implements Config

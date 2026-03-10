@@ -8,7 +8,7 @@ use Demyan112rv\MountebankPHP\Response\Behavior\Config;
 
 /**
  * @package Demyan112rv\MountebankPHP\Response
- * @see http://www.mbtest.org/docs/api/behaviors
+ * @see https://www.mbtest.dev/docs/api/behaviors
  * @since 0.5
  */
 class Behavior

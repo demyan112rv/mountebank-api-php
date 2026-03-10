@@ -6,7 +6,7 @@ namespace Demyan112rv\MountebankPHP;
 
 /**
  * @package Demyan112rv\MountebankPHP
- * @see http://www.mbtest.org/docs/api/stubs
+ * @see https://www.mbtest.dev/docs/api/stubs
  * @since 0.1
  */
 class Stub

@@ -6,7 +6,7 @@ namespace Demyan112rv\MountebankPHP\Predicate;
 
 /**
  * @package Demyan112rv\MountebankPHP\Predicate
- * @see http://www.mbtest.org/docs/api/jsonpath
+ * @see https://www.mbtest.dev/docs/api/jsonpath
  * @since 0.3
  */
 class JsonPath

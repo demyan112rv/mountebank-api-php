@@ -6,7 +6,7 @@ namespace Demyan112rv\MountebankPHP\Predicate;
 
 /**
  * @package Demyan112rv\MountebankPHP\Predicate
- * @see http://www.mbtest.org/docs/api/xpath
+ * @see https://www.mbtest.dev/docs/api/xpath
  * @since 0.3
  */
 class XPath
