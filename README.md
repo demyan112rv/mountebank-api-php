@@ -8,9 +8,9 @@ Mountebank API PHP
 [![Build Status](https://api.travis-ci.com/demyan112rv/mountebank-api-php.svg?branch=master&status=passed)](https://api.travis-ci.com/demyan112rv/mountebank-api-php.svg?branch=master&status=passed)
 [![Coverage Status](https://coveralls.io/repos/github/demyan112rv/mountebank-api-php/badge.svg?branch=master)](https://coveralls.io/github/demyan112rv/mountebank-api-php?branch=master)
 
-What is the Mountebank? See original [documentation](http://www.mbtest.org/) for understanding.
+What is the Mountebank? See original [documentation](https://www.mbtest.dev/) for understanding.
 
-This package is a php wrapper for [mountebank API](http://www.mbtest.org/docs/api/overview).
+This package is a php wrapper for [mountebank API](https://www.mbtest.dev/docs/api/overview).
 
 ## Install
 
